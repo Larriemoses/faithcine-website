@@ -42,7 +42,7 @@ export function WaitlistForm() {
   }
 
   if (state === "success" || state === "existing") {
-    return <p className="form-success" role="status">{state === "existing" ? "You are already on the list." : "You are on the list. Watch your inbox for a confirmation."}</p>;
+    return <p className="form-success" role="status">{state === "existing" ? "You are already on the list." : "You are on the list. We will be in touch when there is news to share."}</p>;
   }
 
   return (

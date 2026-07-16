@@ -6,8 +6,8 @@ author: "FaithCine Editorial"
 publishedAt: "2026-07-16"
 updatedAt: "2026-07-16"
 pillar: "Scripture practice"
-image: "/og.png"
-imageAlt: "FaithCine editorial card"
+image: "/media/worship-crowd.jpg"
+imageAlt: "A congregation gathered in worship"
 draft: false
 ---
 Scripture meditation is the practice of giving sustained, prayerful attention to biblical truth. It is less about racing through a large amount of material and more about remaining with what has been read: noticing its words, context, direction, and implications.

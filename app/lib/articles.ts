@@ -1,12 +1,14 @@
-import anxiety from "../../content/blog/bring-anxiety-to-scripture.md?raw";
-import meditation from "../../content/blog/what-scripture-meditation-is.md?raw";
-import responsibleTechnology from "../../content/blog/responsible-technology-and-faith.md?raw";
-
 export type Article = {
   title: string; description: string; slug: string; author: string;
   publishedAt: string; updatedAt: string; pillar: string; image: string;
   imageAlt: string; draft: boolean; body: string;
 };
+
+const articleFiles = import.meta.glob("../../content/blog/*.md", {
+  eager: true,
+  import: "default",
+  query: "?raw",
+}) as Record<string, string>;
 
 function parse(source: string): Article {
   const match = source.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
@@ -24,5 +26,8 @@ function parse(source: string): Article {
   };
 }
 
-export const articles = [meditation, anxiety, responsibleTechnology].map(parse).filter((article) => !article.draft);
+export const articles = Object.values(articleFiles)
+  .map(parse)
+  .filter((article) => !article.draft)
+  .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
 export function getArticle(slug: string) { return articles.find((article) => article.slug === slug); }

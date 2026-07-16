@@ -6,11 +6,13 @@ author: "FaithCine Editorial"
 publishedAt: "2026-07-16"
 updatedAt: "2026-07-16"
 pillar: "Faith and real life"
-image: "/og.png"
-imageAlt: "FaithCine editorial card"
+image: "/media/youth-community.jpg"
+imageAlt: "Young people praying together in a church gathering"
 draft: false
 ---
 An anxious moment can make attention feel narrow and hurried. Thoughts repeat, the body feels alert, and simple decisions become difficult. Scripture can meet that moment without pretending the feeling is unreal or demanding an instant emotional result.
+
+![Young people taking a quiet moment to pray together](/media/youth-community.jpg "Faith can be practiced honestly and in community. Photo: Israel Torres / Pexels")
 
 This reflection is spiritual guidance, not medical advice. Persistent or severe anxiety deserves care from a qualified health professional, trusted people, and appropriate local support.
 

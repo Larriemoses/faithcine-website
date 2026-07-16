@@ -1,33 +1,24 @@
 <div align="center">
+  <img src="public/faithcine-logo-white.png" alt="FaithCine" width="150" />
 
-# FAITH<span style="color:#D7B66B">CINE</span>
+# FaithCine
 
-### Media that points to Christ.
+### Stories that point to Christ.
 
-[![React](https://img.shields.io/badge/React-19-080A0E?style=flat-square&logo=react)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-strict-0F62FE?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
-[![Status](https://img.shields.io/badge/Selah-in%20development-D7B66B?style=flat-square)](#product-stage)
+[![Website](https://img.shields.io/badge/Website-live-8D5CFF?style=for-the-badge)](https://faithcine-selah.robust-mesa-9041.chatgpt.site)
+[![React](https://img.shields.io/badge/React-19-111111?style=for-the-badge&logo=react)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-111111?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 
-The official marketing and editorial website for FaithCine, a Christ-centered media and technology company beginning with **FaithCine Selah**.
+Christ-centered films, stories, live experiences, learning, and community—created from Africa for a wider world.
 
 </div>
 
-## What is here
-
-- A mobile-first, multi-page brand website
-- Selah product story, roadmap, Journal, trust, and legal pages
-- Durable early-access and contact forms backed by D1
-- Metadata, social previews, sitemap, robots, and structured data
-- Keyboard, reduced-motion, reflow, and consent-aware foundations
-
-## Run locally
+## Quick start
 
 ```bash
 npm install
 npm run dev
 ```
-
-Open the local URL printed by the development server.
 
 ```bash
 npm run typecheck
@@ -35,16 +26,18 @@ npm test
 npm run build
 ```
 
-## Publish an article
+## Publish to the Journal
 
-Add a Markdown file to `content/blog/`, include the required front matter, then register its raw import in `app/lib/articles.ts`.
+Add a Markdown file to `content/blog/`. Put its images in `public/blog/<slug>/` and reference them with standard Markdown:
 
-## Product stage
+```md
+![Descriptive alt text](/blog/my-post/image.jpg "Optional caption")
+```
 
-FaithCine Selah is in design and development. This repository deliberately avoids invented users, partnerships, traction, launch dates, and shipped-feature claims.
+New Markdown files are discovered automatically. See [`docs/BLOG_PUBLISHING.md`](docs/BLOG_PUBLISHING.md) for the complete two-minute workflow.
 
 <div align="center">
 
-Built from Nigeria, for a wider world.
+**Till Jesus be seen · Matthew 5:14–16**
 
 </div>

@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "types": ["node", "@cloudflare/workers-types/2023-07-01"],
+    "types": ["node", "vite/client", "@cloudflare/workers-types/2023-07-01"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,

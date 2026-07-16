@@ -6,8 +6,8 @@ author: "FaithCine Editorial"
 publishedAt: "2026-07-16"
 updatedAt: "2026-07-16"
 pillar: "Technology and trust"
-image: "/og.png"
-imageAlt: "FaithCine editorial card"
+image: "/media/creator-podcast.jpg"
+imageAlt: "A Black media creator recording a podcast"
 draft: false
 ---
 Technology can help people find, hear, study, and return to Scripture. It can also create confusion when speed and confidence are mistaken for wisdom or spiritual authority. A responsible faith product needs visible boundaries, not only good intentions.

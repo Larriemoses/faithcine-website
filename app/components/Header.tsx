@@ -3,11 +3,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { SocialLinks } from "./SocialLinks";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
-  ["Selah", "/selah"],
+  ["What we do", "/#what-we-do"],
   ["Products", "/products"],
-  ["Stories", "/stories"],
   ["Journal", "/blog"],
   ["About", "/about"],
 ] as const;
@@ -32,7 +33,7 @@ export function Header() {
     <header className="site-header">
       <div className="header-inner">
         <Link className="brand-link" href="/" aria-label="FaithCine home">
-          <Image className="brand-logo" src="/faithcine-logo-white.png" alt="FaithCine - Till Jesus be seen, Matthew 5:14-16" width={1402} height={1122} priority />
+          <Image className="brand-logo" src="/faithcine-logo-white.png" alt="FaithCine - Till Jesus be seen, Matthew 5:14-16" width={1402} height={1122} priority unoptimized />
         </Link>
         <button
           ref={buttonRef}
@@ -50,8 +51,9 @@ export function Header() {
           ))}
         </nav>
         <div className="header-actions">
-          <Link className="utility-link" href="/contact">Contact</Link>
-          <Link className="button button-small button-primary" href="/#early-access">Join early access</Link>
+          <ThemeToggle />
+          <SocialLinks className="header-socials" />
+          <Link className="button button-small button-primary" href="/#early-access">Join us</Link>
         </div>
       </div>
     </header>

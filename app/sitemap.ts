@@ -1,0 +1,3 @@
+import type { MetadataRoute } from "next";
+import { articles } from "./lib/articles";
+export default function sitemap():MetadataRoute.Sitemap{const base="https://faithcine.com";const routes=["","/selah","/products","/stories","/blog","/about","/contact","/privacy","/terms","/accessibility"];return [...routes.map((route)=>({url:`${base}${route}`,lastModified:new Date("2026-07-16"),changeFrequency:route===""?"weekly" as const:"monthly" as const,priority:route===""?1:0.7})),...articles.map((article)=>({url:`${base}/blog/${article.slug}`,lastModified:new Date(article.updatedAt),changeFrequency:"monthly" as const,priority:0.75}))];}

@@ -1,0 +1,67 @@
+"use client";
+
+import Link from "next/link";
+import { FormEvent, useState } from "react";
+
+type State = "idle" | "loading" | "success" | "existing" | "error";
+
+export function WaitlistForm() {
+  const [state, setState] = useState<State>("idle");
+  const [error, setError] = useState("");
+
+  async function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    const email = String(data.get("email") ?? "").trim();
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      setError("Enter a valid email address.");
+      setState("error");
+      return;
+    }
+    setState("loading");
+    setError("");
+    try {
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          email,
+          researchConsent: data.get("researchConsent") === "on",
+          website: data.get("website"),
+        }),
+      });
+      const result = (await response.json()) as { existing?: boolean; error?: string };
+      if (!response.ok) throw new Error(result.error ?? "Request failed");
+      setState(result.existing ? "existing" : "success");
+      form.reset();
+    } catch {
+      setError("Something went wrong. Your answer is still here - please try again.");
+      setState("error");
+    }
+  }
+
+  if (state === "success" || state === "existing") {
+    return <p className="form-success" role="status">{state === "existing" ? "You are already on the list." : "You are on the list. Watch your inbox for a confirmation."}</p>;
+  }
+
+  return (
+    <form className="waitlist-form" onSubmit={submit} noValidate>
+      <div className="honeypot" aria-hidden="true">
+        <label htmlFor="website">Website</label>
+        <input id="website" name="website" tabIndex={-1} autoComplete="off" />
+      </div>
+      <label htmlFor="waitlist-email">Email address</label>
+      <div className="field-button-row">
+        <input id="waitlist-email" name="email" type="email" autoComplete="email" placeholder="you@example.com" aria-describedby="waitlist-note waitlist-error" required />
+        <button className="button button-primary" type="submit" disabled={state === "loading"}>{state === "loading" ? "Joining..." : "Join early access"}</button>
+      </div>
+      <label className="checkbox-row">
+        <input name="researchConsent" type="checkbox" />
+        <span>I am open to being contacted separately for product research.</span>
+      </label>
+      <p id="waitlist-note" className="form-note">Occasional product updates and research invitations. Unsubscribe at any time. See our <Link href="/privacy">Privacy Notice</Link>.</p>
+      {error && <p id="waitlist-error" className="form-error" role="alert">{error}</p>}
+    </form>
+  );
+}

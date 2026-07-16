@@ -1,0 +1,11 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { PageIntro } from "../components/PageIntro";
+
+export const metadata: Metadata = { title: "About FaithCine - Our mission and approach", description: "Why FaithCine exists and how the Christ-centered media and technology company is approaching its first product.", alternates: { canonical: "/about" } };
+export default function AboutPage() { return <>
+  <PageIntro eyebrow="About FaithCine" title="Why FaithCine exists."><p>FaithCine began with a conviction: media and technology can create room for people to encounter, understand, and continually meditate on God&apos;s truth. Our first focus is Selah, a Scripture-led product being researched and designed from Nigeria for a wider world.</p></PageIntro>
+  <section className="section-shell mission-grid"><article><p className="section-number">Mission</p><h2>Help people encounter, understand, and remain with biblical truth through thoughtful media and technology.</h2></article><article><p className="section-number">Vision</p><h2>A trusted ecosystem of Scripture, story, sound, study, and cinematic experiences that point to Christ.</h2></article></section>
+  <section className="section-shell values-section"><div className="section-heading"><p className="section-number">How we work</p><h2>Clarity before claims.</h2></div><div className="principle-grid"><article><span>01</span><h3>Christ-centered</h3><p>Technology supports engagement with biblical truth; it does not claim spiritual authority.</p></article><article><span>02</span><h3>African-rooted</h3><p>We begin with Nigerian language, bandwidth, device, and cultural realities.</p></article><article><span>03</span><h3>Responsibly built</h3><p>We label what is planned, review what technology assists, and protect user trust.</p></article></div></section>
+  <section className="section-shell team-stage"><div><p className="section-number">Current stage</p><h2>A focused, early-stage team.</h2></div><div><p>FaithCine is currently shaping Selah through research, design, and product development. We do not publish team biographies, adviser claims, or partnerships until the people involved have approved them.</p><Link className="button button-primary" href="/contact">Work with us &rarr;</Link></div></section>
+  </>; }

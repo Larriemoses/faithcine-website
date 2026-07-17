@@ -1,9 +1,9 @@
+import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { FaBookOpen, FaClapperboard, FaPeopleGroup, FaTowerBroadcast } from "react-icons/fa6";
 import { WaitlistForm } from "./components/WaitlistForm";
-import { articles } from "./lib/articles";
+import { ScrollMotion } from "./components/ScrollMotion";
 
 export const metadata: Metadata = {
   title: { absolute: "FaithCine | Christian media from Nigeria for Africa" },
@@ -12,176 +12,117 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-const experiences = [
+const paths = [
   {
     number: "01",
-    title: "Films and stories",
-    label: "Christian films and stories",
-    body: "Christian films, series, and documentaries that tell honest stories and bring biblical truth into everyday decisions.",
-    image: "/media/family-screen.jpg",
-    alt: "A mother and daughter watching a programme together at home",
-    Icon: FaClapperboard,
+    label: "Guided Scripture",
+    title: "FaithCine Selah",
+    body: "Bring a real moment to Scripture through reading, prayer, listening, and reflection.",
+    href: "/selah",
+    link: "Explore Selah",
+    image: "/media/youth-community.jpg",
+    alt: "Young adults praying together during a church gathering",
   },
   {
     number: "02",
-    title: "Live programmes",
-    label: "Shared gatherings",
-    body: "Worship, conversations, premieres, and events where people can encounter Christian media together, online or in person.",
-    image: "/media/worship-crowd.jpg",
-    alt: "People gathered for a live Christian worship event",
-    Icon: FaTowerBroadcast,
+    label: "Films and visual stories",
+    title: "FaithCine Stories",
+    body: "Christian stories rooted in faith, honest choices, and African life.",
+    href: "/stories",
+    link: "Explore Stories",
+    image: "/media/camera-production.jpg",
+    alt: "A Nigerian filmmaker operating a cinema camera on set",
   },
   {
     number: "03",
-    title: "Learning and devotion",
-    label: "Scripture and daily life",
-    body: "Articles, devotionals, and future study tools that help people understand Scripture and apply it to daily decisions.",
-    image: "/media/youth-community.jpg",
-    alt: "Young adults praying together during a church gathering",
-    Icon: FaBookOpen,
-  },
-  {
-    number: "04",
-    title: "Creators and community",
-    label: "Building together",
-    body: "Planned ways for Christian creators, churches, families, and audiences to meet, learn, and support new Christian media.",
+    label: "Ideas and practice",
+    title: "FaithCine Journal",
+    body: "Writing on Scripture, daily faith, media culture, and responsible technology.",
+    href: "/blog",
+    link: "Read the Journal",
     image: "/media/creator-podcast.jpg",
-    alt: "A Nigerian media creator recording a podcast in a studio",
-    Icon: FaPeopleGroup,
+    alt: "A Nigerian media creator recording in a studio",
   },
-] as const;
-
-const products = [
-  ["FaithCine Selah", "A guided Scripture product for reading, listening, prayer, and reflection", "In design and development"],
-  ["FaithCine Stories", "Films, series, documentaries, and visual stories about faith and everyday choices", "In early development"],
-  ["FaithCine Study", "Planned Bible study resources for deeper learning and practical discipleship", "Exploring"],
-  ["FaithCine Kids", "Planned stories, animation, learning, and play for children", "Planned for later"],
-  ["FaithCine Studio", "Planned production work across film, audio, and live programmes", "Planned for later"],
 ] as const;
 
 export default function Home() {
-  const latestArticles = articles.slice(0, 3);
-
   return (
     <>
-      <section className="brand-hero" aria-labelledby="home-title">
+      <ScrollMotion />
+
+      <section className="brand-hero home-screen" aria-labelledby="home-title">
         <Image className="brand-hero-image" src="/media/camera-production.jpg" alt="" fill sizes="100vw" priority unoptimized />
         <div className="brand-hero-shade" aria-hidden="true" />
-        <div className="brand-hero-inner section-shell">
+        <div className="brand-hero-inner section-shell" data-reveal>
           <p className="hero-overline">Christian media and technology from Africa</p>
-          <h1 id="home-title">Stories and Scripture tools <strong>that point people to Christ.</strong></h1>
-          <p className="brand-hero-lede">
-            FaithCine is developing films, guided Scripture tools, learning resources, and live programmes for young people and families. Our work begins in Nigeria and serves audiences across Africa and beyond.
-          </p>
+          <h1 id="home-title">Stories that <strong>point people to Christ.</strong></h1>
+          <p className="brand-hero-lede">FaithCine develops Christian films, Scripture tools, learning, and live experiences from Nigeria for Africa and beyond.</p>
           <div className="hero-actions">
-            <Link className="button button-primary" href="#what-we-do">See our work</Link>
-            <Link className="button button-ghost-dark" href="/blog">Read the Journal</Link>
+            <Link className="button button-primary" href="#what-we-do">Discover FaithCine</Link>
+            <Link className="button button-ghost-dark" href="/products">View our products</Link>
           </div>
         </div>
       </section>
 
-      <div className="motion-rail" aria-label="FaithCine areas of focus">
-        <div>
-          {["FILMS", "SERIES", "LIVE", "LEARNING", "COMMUNITY", "CREATORS", "FAMILIES", "FAITH", "FILMS", "SERIES", "LIVE", "LEARNING"].map((item, index) => (
-            <span key={`${item}-${index}`}>{item}<b aria-hidden="true">+</b></span>
-          ))}
+      <section id="what-we-do" className="home-screen home-intro section-shell">
+        <div className="home-intro-media" data-reveal>
+          <Image src="/media/family-screen.jpg" alt="A mother and daughter watching a programme together at home" fill sizes="(max-width: 900px) 100vw, 52vw" unoptimized />
         </div>
-      </div>
-
-      <section id="what-we-do" className="what-we-do section-shell">
-        <div className="what-we-do-media">
-          <Image src="/media/camera-production.jpg" alt="A Nigerian filmmaker operating a cinema camera on set" fill sizes="(max-width: 900px) 100vw, 50vw" unoptimized />
-        </div>
-        <div className="what-we-do-copy">
-          <span className="section-index">01</span>
-          <p className="section-label">What we do</p>
-          <h2>The stories people watch influence how they understand faith and life.</h2>
-          <p className="section-lede">Young people meet ideas about identity, relationships, success, and faith through films, music, social media, and online conversations every day. FaithCine is adding Christian stories and work led by Scripture to those conversations, with biblical truth, strong craft, and an understanding of daily life.</p>
-          <p>FaithCine began in Nigeria as a Christian media and technology company. Our work brings together original stories, Scripture reflection, learning, live programmes, and tools that move people from watching to prayer, thought, and conversation.</p>
-          <div className="mission-brief"><span>Our mission</span><p>To glorify God through media, technology, and community work that helps people see Christ, understand biblical truth, and live it out each day.</p></div>
-          <Link className="text-link" href="/about">Read our mission and values <span aria-hidden="true">→</span></Link>
+        <div className="home-intro-copy" data-reveal style={{ "--reveal-delay": "100ms" } as CSSProperties}>
+          <p className="section-label">01 / What FaithCine is</p>
+          <h2>Christian media shaped by Scripture and everyday life.</h2>
+          <p>We bring stories, guided Scripture, learning, and shared experiences into one growing media vision.</p>
+          <Link className="text-link" href="/about">Why FaithCine exists <span aria-hidden="true">→</span></Link>
         </div>
       </section>
 
-      <section className="experience-section" aria-labelledby="experience-title">
-        <div className="section-shell section-heading-row">
-          <span className="section-index">02</span>
-          <div><p className="section-label">Media, Scripture, learning and community</p><h2 id="experience-title">Films, Scripture, learning, and shared gatherings in one Christian media vision.</h2></div>
-          <p>FaithCine brings together several ways people engage with Christian truth: stories, Scripture, learning, conversation, and shared gatherings.</p>
-        </div>
-        <div className="experience-grid section-shell">
-          {experiences.map(({ number, title, label, body, image, alt, Icon }) => (
-            <article className="experience-card" key={title}>
-              <div className="experience-card-media">
-                <Image src={image} alt={alt} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 25vw" unoptimized />
-                <span>{number}</span>
-              </div>
-              <div className="experience-card-copy">
-                <div><Icon aria-hidden="true" /><p>{label}</p></div>
-                <h3>{title}</h3>
-                <p>{body}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="product-universe section-shell" aria-labelledby="products-title">
-        <div className="product-universe-heading">
-          <span className="section-index">03</span>
-          <p className="section-label">FaithCine products</p>
-          <h2 id="products-title">Each product serves a different part of the mission.</h2>
-          <p>FaithCine Selah is our first product and the work receiving the most attention now. FaithCine Stories is also in early development, while the remaining products are planned for later.</p>
-          <Link className="button button-outline" href="/products">View the product plan</Link>
-        </div>
-        <div className="product-stack">
-          {products.map(([name, body, status], index) => (
-            <article key={name}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <div><h3>{name}</h3><p>{body}</p></div>
-              <em>{status}</em>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="purpose-section" aria-labelledby="purpose-title">
-        <Image src="/media/worship-crowd.jpg" alt="People gathered in worship" fill sizes="100vw" unoptimized />
-        <div className="purpose-shade" />
-        <div className="purpose-inner section-shell">
-          <span className="section-index">04</span>
-          <p className="section-label">Made in Nigeria</p>
-          <h2 id="purpose-title">Our starting point is Nigeria.</h2>
-          <div className="purpose-grid">
-            <article><span>Designed here</span><p>FaithCine begins with the stories, languages, devices, data costs, family life, and expressions of faith that are familiar in Nigeria and other African communities.</p></article>
-            <article><span>Made to travel</span><p>These considerations inform our research, writing, design, and production from the beginning. The work should feel at home here and remain understandable to Christians elsewhere.</p></article>
+      <section className="home-screen home-paths" aria-labelledby="paths-title">
+        <div className="section-shell">
+          <div className="home-section-heading" data-reveal>
+            <div><p className="section-label">02 / Explore FaithCine</p><h2 id="paths-title">Choose where to begin.</h2></div>
+            <Link className="text-link" href="/products">See the full product plan <span aria-hidden="true">→</span></Link>
           </div>
-        </div>
-      </section>
-
-      <section className="latest-journal section-shell" aria-labelledby="journal-title">
-        <div className="section-heading-row">
-          <span className="section-index">05</span>
-          <div><p className="section-label">FaithCine Journal</p><h2 id="journal-title">Read the research and thinking behind FaithCine.</h2></div>
-          <div><p>The Journal publishes writing on Scripture and daily life, Christian storytelling, media culture, and the decisions involved in developing technology around the Word.</p><Link className="text-link" href="/blog">Visit the Journal <span aria-hidden="true">→</span></Link></div>
-        </div>
-        <div className="journal-preview-grid">
-          {latestArticles.map((article) => (
-            <article key={article.slug}>
-              <Link className="journal-preview-image" href={`/blog/${article.slug}`}>
-                <Image src={article.image} alt={article.imageAlt} fill sizes="(max-width: 750px) 100vw, 33vw" unoptimized />
+          <div className="home-path-grid">
+            {paths.map((path, index) => (
+              <Link
+                className="home-path-card"
+                href={path.href}
+                key={path.title}
+                data-reveal
+                style={{ "--reveal-delay": `${100 + index * 90}ms` } as CSSProperties}
+              >
+                <Image src={path.image} alt={path.alt} fill sizes="(max-width: 760px) 82vw, 33vw" unoptimized />
+                <div className="home-path-shade" aria-hidden="true" />
+                <div className="home-path-copy">
+                  <span>{path.number}</span>
+                  <p>{path.label}</p>
+                  <h3>{path.title}</h3>
+                  <div className="home-path-detail"><p>{path.body}</p><strong>{path.link} <span aria-hidden="true">→</span></strong></div>
+                </div>
               </Link>
-              <p className="article-meta"><span>{article.pillar}</span><time dateTime={article.publishedAt}>{new Date(`${article.publishedAt}T00:00:00`).toLocaleDateString("en-NG", { day: "numeric", month: "short", year: "numeric" })}</time></p>
-              <h3><Link href={`/blog/${article.slug}`}>{article.title}</Link></h3>
-              <p>{article.description}</p>
-            </article>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      <section id="early-access" className="conversion conversion-brand section-shell">
-        <div><p className="section-label">FaithCine Selah early access</p><h2>Follow Selah from research to beta.</h2><p>Join the early access list for product updates. We may also invite you to research sessions and future beta testing.</p></div>
-        <WaitlistForm />
+      <section className="home-screen home-origin" aria-labelledby="origin-title">
+        <Image src="/media/worship-crowd.jpg" alt="People gathered for a Christian worship service" fill sizes="100vw" unoptimized />
+        <div className="home-origin-shade" aria-hidden="true" />
+        <div className="home-origin-copy section-shell" data-reveal>
+          <p className="section-label">03 / Made in Nigeria</p>
+          <h2 id="origin-title">Made here. Ready to serve beyond here.</h2>
+          <p>Our work begins with African stories, cultures, devices, families, and expressions of faith.</p>
+          <Link className="button button-ghost-dark" href="/about">Read about FaithCine</Link>
+        </div>
+      </section>
+
+      <section id="early-access" className="home-screen home-conversion section-shell">
+        <div data-reveal>
+          <p className="section-label">04 / FaithCine Selah early access</p>
+          <h2>Follow Selah from research to beta.</h2>
+          <p>Receive product updates and occasional invitations to help us test what we are building.</p>
+        </div>
+        <div data-reveal style={{ "--reveal-delay": "120ms" } as CSSProperties}><WaitlistForm /></div>
       </section>
     </>
   );

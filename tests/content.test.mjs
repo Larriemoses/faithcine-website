@@ -38,3 +38,22 @@ test("marketing pages avoid em dashes", () => {
   const copy = routes.map((route) => readFileSync(route, "utf8")).join("\n");
   assert.doesNotMatch(copy, /\u2014/);
 });
+
+test("homepage stays focused and screen based", () => {
+  const home = readFileSync("app/page.tsx", "utf8");
+  const css = readFileSync("app/globals.css", "utf8");
+  assert.equal((home.match(/className="[^"]*home-screen/g) ?? []).length, 5);
+  assert.doesNotMatch(home, /experience-section|product-universe|latest-journal|motion-rail/);
+  assert.match(css, /\.home-screen\s*\{[^}]*min-height:\s*calc\(100svh\s*-\s*4\.75rem\)/s);
+  assert.match(css, /\.brand-hero h1\s*\{[^}]*4\.8rem/s);
+  assert.match(css, /\.brand-hero h1\s*\{[^}]*3\.25rem/s);
+});
+
+test("homepage includes lightweight scroll interaction", () => {
+  const home = readFileSync("app/page.tsx", "utf8");
+  const motion = readFileSync("app/components/ScrollMotion.tsx", "utf8");
+  assert.match(home, /<ScrollMotion \/>/);
+  assert.match(motion, /IntersectionObserver/);
+  assert.match(motion, /requestAnimationFrame/);
+  assert.match(motion, /prefers-reduced-motion/);
+});

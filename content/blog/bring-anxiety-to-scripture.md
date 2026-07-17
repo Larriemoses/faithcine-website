@@ -1,6 +1,6 @@
 ---
 title: "Bringing an anxious moment to Scripture"
-description: "A grounded pattern for meeting an anxious moment with Scripture, honest prayer, and appropriate support."
+description: "How to name what you feel, read a passage in context, pray honestly, and know when further support is needed."
 slug: "bring-anxiety-to-scripture"
 author: "FaithCine Editorial"
 publishedAt: "2026-07-16"

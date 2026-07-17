@@ -5,8 +5,8 @@ import { WaitlistCta } from "../components/WaitlistCta";
 import { articles } from "../lib/articles";
 
 export const metadata: Metadata = {
-  title: "FaithCine Journal — Stories, faith, culture and media",
-  description: "FaithCine writing on faith, Christian media, culture, Scripture, creativity, and life.",
+  title: "FaithCine Journal | Scripture, faith, media and technology",
+  description: "Read FaithCine articles on Scripture, Christian living, media culture, responsible technology, and the work behind our products.",
   alternates: { canonical: "/blog" },
 };
 
@@ -22,9 +22,9 @@ export default function BlogPage() {
     <>
       <section className="journal-hero section-shell">
         <p className="section-label">FaithCine Journal</p>
-        <h1>Faith. Culture.<br /><span>Stories that matter.</span></h1>
+        <h1>Writing on Scripture, faith, media, and technology.</h1>
         <div className="journal-hero-foot">
-          <p>Ideas, reflections, media insight, and practical faith—written to help a generation see Jesus more clearly.</p>
+          <p>The Journal examines Christian practice, media culture, responsible technology, and the decisions behind FaithCine.</p>
           <nav aria-label="Journal topics">{pillars.map((pillar) => <span key={pillar}>{pillar}</span>)}</nav>
         </div>
       </section>
@@ -38,14 +38,14 @@ export default function BlogPage() {
             <p className="article-meta"><span>Featured</span><span>{featured.pillar}</span></p>
             <h2><Link href={`/blog/${featured.slug}`}>{featured.title}</Link></h2>
             <p>{featured.description}</p>
-            <p className="article-byline">By {featured.author} <span aria-hidden="true">·</span> <time dateTime={featured.publishedAt}>{dateLabel(featured.publishedAt)}</time></p>
-            <Link className="button button-outline" href={`/blog/${featured.slug}`}>Read the story <span aria-hidden="true">→</span></Link>
+            <p className="article-byline">By {featured.author} <span aria-hidden="true">|</span> <time dateTime={featured.publishedAt}>{dateLabel(featured.publishedAt)}</time></p>
+            <Link className="button button-outline" href={`/blog/${featured.slug}`}>Read article</Link>
           </div>
         </section>
       )}
 
       <section className="journal-library section-shell" aria-labelledby="latest-stories">
-        <div className="library-heading"><p className="section-label">Latest stories</p><h2 id="latest-stories">Read what’s new.</h2></div>
+        <div className="library-heading"><p className="section-label">Latest articles</p><h2 id="latest-stories">Read what is new.</h2></div>
         <div className="journal-card-grid">
           {more.map((article) => (
             <article key={article.slug}>
@@ -55,17 +55,13 @@ export default function BlogPage() {
               <p className="article-meta"><span>{article.pillar}</span><time dateTime={article.publishedAt}>{dateLabel(article.publishedAt)}</time></p>
               <h2><Link href={`/blog/${article.slug}`}>{article.title}</Link></h2>
               <p>{article.description}</p>
-              <Link className="arrow-link" href={`/blog/${article.slug}`}>Read article <span aria-hidden="true">↗</span></Link>
+              <Link className="text-link" href={`/blog/${article.slug}`}>Read article <span aria-hidden="true">→</span></Link>
             </article>
           ))}
         </div>
       </section>
-
-      <aside className="publishing-note section-shell">
-        <p className="section-label">Publishing at FaithCine</p>
-        <p>New articles are published from Markdown, with responsive cover and inline imagery. That keeps the Journal fast, portable, and ready for a high-volume editorial rhythm.</p>
-      </aside>
-      <WaitlistCta />
+      <section className="editorial-standards section-shell"><div><p className="section-number">Editorial standards</p><h2>How we publish.</h2></div><p>Every article has a named author and publication date. Scripture quotations identify the translation. Research and technical claims include sources. If we make a substantial change after publication, the article will show an updated date.</p></section>
+      <WaitlistCta title="Take part in Selah research." />
     </>
   );
 }

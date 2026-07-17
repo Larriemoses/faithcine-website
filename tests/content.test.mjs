@@ -24,3 +24,17 @@ test("product language remains pre-launch", () => {
   assert.doesNotMatch(copy, /millions impacted|download now|available today/i);
   assert.match(copy, /design and development/i);
 });
+
+test("brand system stays locked to Inter and FaithCine blue", () => {
+  const css = readFileSync("app/globals.css", "utf8");
+  const layout = readFileSync("app/layout.tsx", "utf8");
+  assert.match(css, /--brand-blue:\s*#0f62fe/i);
+  assert.match(css, /--font:.*Inter Variable/i);
+  assert.match(layout, /@fontsource-variable\/inter/);
+  assert.doesNotMatch(css, /#8d5cff|#ff5ea8|#d8ff62|brand-pink|brand-violet|brand-lime/i);
+});
+
+test("marketing pages avoid em dashes", () => {
+  const copy = routes.map((route) => readFileSync(route, "utf8")).join("\n");
+  assert.doesNotMatch(copy, /\u2014/);
+});

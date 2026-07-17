@@ -1,6 +1,6 @@
 ---
 title: "What Scripture meditation is - and what it is not"
-description: "A calm, practical introduction to remaining with biblical truth without turning reflection into performance."
+description: "An introduction to slowing down with Scripture, understanding the passage, and responding in prayer."
 slug: "what-scripture-meditation-is"
 author: "FaithCine Editorial"
 publishedAt: "2026-07-16"

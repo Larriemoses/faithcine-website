@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { ConsentBanner } from "./components/ConsentBanner";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
+import "@fontsource-variable/inter";
 import "./globals.css";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -20,20 +21,20 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase,
     title: { default: "FaithCine", template: "%s | FaithCine" },
     description:
-      "FaithCine is building a Christ-centered media ecosystem of films, shows, live experiences, learning, and community.",
+      "FaithCine develops Christian films, guided Scripture tools, learning resources, and live programmes from Nigeria for audiences across Africa.",
     applicationName: "FaithCine",
     openGraph: {
       type: "website",
       siteName: "FaithCine",
-      title: "FaithCine - Media that points to Christ",
+      title: "FaithCine | Christian media from Nigeria for Africa",
       description:
-        "Christ-centered media from Africa for a generation.",
+        "Christian media and technology from Nigeria for audiences across Africa.",
       images: [{ url: "/media/family-screen.jpg", width: 1800, height: 1013, alt: "A family watching FaithCine together" }],
     },
     twitter: {
       card: "summary_large_image",
-      title: "FaithCine - Media that points to Christ",
-      description: "Christ-centered media from Africa for a generation.",
+      title: "FaithCine | Christian media from Nigeria for Africa",
+      description: "Christian media and technology from Nigeria for audiences across Africa.",
       images: ["/media/family-screen.jpg"],
     },
   };
@@ -45,7 +46,7 @@ const organizationJsonLd = {
   name: "FaithCine",
   url: "https://faithcine.com",
   description:
-    "A Christ-centered media platform building films, shows, live experiences, learning, and community from Africa for a wider world.",
+    "A Christian media and technology company in Nigeria developing films, Scripture tools, learning resources, and live programmes for Africa and the wider world.",
   sameAs: [
     "https://www.youtube.com/@faithcine_official",
     "https://www.instagram.com/faithcine_official/",

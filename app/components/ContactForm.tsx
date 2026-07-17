@@ -22,7 +22,7 @@ export function ContactForm() {
       if (!response.ok) throw new Error(result.error ?? "Request failed");
       window.location.assign("/thank-you?type=contact");
     } catch {
-      setError("We could not send your message. Your answers are still here - please try again or email hello@faithcine.com.");
+      setError("We could not send your message. Your answers remain in the form, so you can try again or email hello@faithcine.com.");
       setLoading(false);
     }
   }
@@ -32,12 +32,12 @@ export function ContactForm() {
       <div className="honeypot" aria-hidden="true"><label htmlFor="contact-website">Website</label><input id="contact-website" name="website" tabIndex={-1} autoComplete="off" /></div>
       <div className="form-grid">
         <div><label htmlFor="name">Name</label><input id="name" name="name" autoComplete="name" maxLength={100} required /></div>
-        <div><label htmlFor="email">Email</label><input id="email" name="email" type="email" autoComplete="email" maxLength={254} required /></div>
+        <div><label htmlFor="email">Email address</label><input id="email" name="email" type="email" autoComplete="email" maxLength={254} required /></div>
       </div>
       <label htmlFor="topic">What would you like to discuss?</label>
       <select id="topic" name="topic" required defaultValue="">
         <option value="" disabled>Select a topic</option>
-        <option>Product feedback</option><option>Partnership</option><option>Research</option><option>Media</option><option>Other</option>
+        <option>Product feedback</option><option>Partnership</option><option>Research</option><option>Media</option><option>Contributing</option><option>Other</option>
       </select>
       <label htmlFor="message">Message</label>
       <textarea id="message" name="message" rows={7} minLength={10} maxLength={3000} required />

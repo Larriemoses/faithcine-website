@@ -36,13 +36,13 @@ export function WaitlistForm() {
       setState(result.existing ? "existing" : "success");
       form.reset();
     } catch {
-      setError("Something went wrong. Your answer is still here - please try again.");
+      setError("We could not add you to the list. Your email remains in the form, so you can try again.");
       setState("error");
     }
   }
 
   if (state === "success" || state === "existing") {
-    return <p className="form-success" role="status">{state === "existing" ? "You are already on the list." : "You are on the list. We will be in touch when there is news to share."}</p>;
+    return <p className="form-success" role="status">{state === "existing" ? "This email is already registered for early access." : "You are on the list. We will be in touch when there is news to share."}</p>;
   }
 
   return (
@@ -58,9 +58,9 @@ export function WaitlistForm() {
       </div>
       <label className="checkbox-row">
         <input name="researchConsent" type="checkbox" />
-        <span>I am open to being contacted separately for product research.</span>
+        <span>I am open to receiving a separate invitation for FaithCine product research.</span>
       </label>
-      <p id="waitlist-note" className="form-note">Occasional product updates and research invitations. Unsubscribe at any time. See our <Link href="/privacy">Privacy Notice</Link>.</p>
+      <p id="waitlist-note" className="form-note">We will send occasional product updates. You can unsubscribe at any time. Read our <Link href="/privacy">Privacy Notice</Link>.</p>
       {error && <p id="waitlist-error" className="form-error" role="alert">{error}</p>}
     </form>
   );

@@ -53,7 +53,7 @@ export function Header() {
         <div className="header-actions">
           <ThemeToggle />
           <SocialLinks className="header-socials" />
-          <Link className="button button-small button-primary" href="/#early-access">Join us</Link>
+          <Link className="button button-small button-primary" href="/#early-access">Join early access</Link>
         </div>
       </div>
     </header>

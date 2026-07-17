@@ -5,11 +5,11 @@
 
 ### Stories that point to Christ.
 
-[![Website](https://img.shields.io/badge/Website-live-8D5CFF?style=for-the-badge)](https://faithcine-selah.robust-mesa-9041.chatgpt.site)
+[![Website](https://img.shields.io/badge/Website-live-0F62FE?style=for-the-badge)](https://faithcine-selah.robust-mesa-9041.chatgpt.site)
 [![React](https://img.shields.io/badge/React-19-111111?style=for-the-badge&logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-111111?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 
-Christ-centered films, stories, live experiences, learning, and community—created from Africa for a wider world.
+Christ-centered films, stories, live experiences, learning, and community. Created from Africa for a wider world.
 
 </div>
 
@@ -38,6 +38,6 @@ New Markdown files are discovered automatically. See [`docs/BLOG_PUBLISHING.md`]
 
 <div align="center">
 
-**Till Jesus be seen · Matthew 5:14–16**
+**Till Jesus be seen · Matthew 5:14-16**
 
 </div>

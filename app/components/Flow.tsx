@@ -1,8 +1,8 @@
 const steps = [
-  ["01", "Name the moment", "Say what you are facing."],
-  ["02", "Receive Scripture", "See passages with references."],
-  ["03", "Choose a response", "Study, pray, meditate, or reflect."],
-  ["04", "Remain and reflect", "Listen, save a truth, or journal."],
+  ["01", "Name what is happening", "Choose or write what you want to bring to Scripture."],
+  ["02", "Read Scripture in context", "Read related passages with references and enough context to understand them."],
+  ["03", "Choose how to respond", "Read, listen, study, pray, confess, declare, or combine several activities."],
+  ["04", "Save what matters", "Save a note, journal privately, keep a passage, or return to the session later."],
 ] as const;
 
 export function Flow({ compact = false }: { compact?: boolean }) {

@@ -1,7 +1,7 @@
 import { ensureFormsSchema } from "../../../db";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const topics = new Set(["Product feedback", "Partnership", "Research", "Media", "Other"]);
+const topics = new Set(["Product feedback", "Partnership", "Research", "Media", "Contributing", "Other"]);
 
 export async function POST(request: Request) {
   try {

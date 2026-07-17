@@ -1,6 +1,6 @@
 ---
-title: "What responsible technology looks like in a faith product"
-description: "Five practical boundaries for using technology around Scripture, prayer, and reflection without overstating its authority."
+title: "How responsible technology works inside a faith product"
+description: "The rules FaithCine uses for Scripture, AI, prayer, privacy, and spiritual authority."
 slug: "responsible-technology-and-faith"
 author: "FaithCine Editorial"
 publishedAt: "2026-07-16"

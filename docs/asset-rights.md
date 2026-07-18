@@ -10,6 +10,6 @@ All current editorial photography is stored locally in `public/media/` and is us
 | `creator-podcast.jpg` | George Milton | [Woman creating a podcast in a studio](https://www.pexels.com/photo/smiling-ethnic-woman-with-microphone-and-laptop-creating-podcast-in-studio-6953869/) | Homepage and Journal |
 | `youth-community.jpg` | Israel Torres | [Young people praying in a church](https://www.pexels.com/photo/young-people-praying-in-a-church-17030079/) | Homepage and Journal |
 
-The FaithCine logo was supplied by the project owner. `public/og.png` is a legacy, unused launch asset; live metadata now uses licensed photography.
+The FaithCine logo was supplied by the project owner. `public/og.png` is the FaithCine social preview created specifically for this website with OpenAI image generation on 18 July 2026. It is used only for link previews.
 
 Add every new blog visual here with its creator, source, licence or release, and placement before publishing.

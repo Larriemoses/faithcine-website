@@ -29,13 +29,13 @@ export async function generateMetadata(): Promise<Metadata> {
       title: "FaithCine | Christian media from Nigeria for Africa",
       description:
         "Christian media and technology from Nigeria for audiences across Africa.",
-      images: [{ url: "/media/family-screen.jpg", width: 1800, height: 1013, alt: "A family watching FaithCine together" }],
+      images: [{ url: "/og.png", width: 1730, height: 909, alt: "FaithCine: Stories and experiences that help people see Jesus" }],
     },
     twitter: {
       card: "summary_large_image",
       title: "FaithCine | Christian media from Nigeria for Africa",
       description: "Christian media and technology from Nigeria for audiences across Africa.",
-      images: ["/media/family-screen.jpg"],
+      images: ["/og.png"],
     },
   };
 }

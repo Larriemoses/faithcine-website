@@ -54,8 +54,11 @@ test("homepage stays focused and screen based", () => {
 test("homepage includes lightweight scroll interaction", () => {
   const home = readFileSync("app/page.tsx", "utf8");
   const motion = readFileSync("app/components/ScrollMotion.tsx", "utf8");
+  const css = readFileSync("app/globals.css", "utf8");
   assert.match(home, /<ScrollMotion \/>/);
   assert.match(motion, /IntersectionObserver/);
   assert.match(motion, /requestAnimationFrame/);
   assert.match(motion, /prefers-reduced-motion/);
+  assert.match(css, /\.motion-ready \[data-reveal="heading"\][\s\S]*?\{[^}]*opacity:\s*1/);
+  assert.match(css, /@keyframes fc-heading-reveal/);
 });

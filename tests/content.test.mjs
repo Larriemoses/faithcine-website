@@ -44,7 +44,9 @@ test("homepage stays focused and screen based", () => {
   const css = readFileSync("app/globals.css", "utf8");
   assert.equal((home.match(/className="[^"]*home-screen/g) ?? []).length, 5);
   assert.doesNotMatch(home, /experience-section|product-universe|latest-journal|motion-rail/);
-  assert.match(css, /\.home-screen\s*\{[^}]*min-height:\s*calc\(100svh\s*-\s*4\.75rem\)/s);
+  assert.match(css, /\.home-screen\s*\{[^}]*min-height:\s*0/s);
+  assert.doesNotMatch(css, /\.home-screen:not\(\.brand-hero\)\s*\{[^}]*height:\s*calc\(100svh/s);
+  assert.match(css, /\.brand-hero,\s*\.brand-hero\.home-screen,\s*\.brand-hero \.hero-stage\s*\{[^}]*height:\s*calc\(100svh\s*-\s*4\.75rem\)/s);
   assert.match(css, /\.brand-hero h1\s*\{[^}]*4\.8rem/s);
   assert.match(css, /\.brand-hero h1\s*\{[^}]*3\.25rem/s);
 });

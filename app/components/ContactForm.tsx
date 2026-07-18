@@ -22,13 +22,13 @@ export function ContactForm() {
       if (!response.ok) throw new Error(result.error ?? "Request failed");
       window.location.assign("/thank-you?type=contact");
     } catch {
-      setError("We could not send your message. Your answers remain in the form, so you can try again or email hello@faithcine.com.");
+      setError("We could not send your message. Your answers remain in the form, so you can try again or email info@faithcine.com.");
       setLoading(false);
     }
   }
 
   return (
-    <form className="contact-form" onSubmit={submit}>
+    <form className="contact-form" onSubmit={submit} aria-busy={loading}>
       <div className="honeypot" aria-hidden="true"><label htmlFor="contact-website">Website</label><input id="contact-website" name="website" tabIndex={-1} autoComplete="off" /></div>
       <div className="form-grid">
         <div><label htmlFor="name">Name</label><input id="name" name="name" autoComplete="name" maxLength={100} required /></div>

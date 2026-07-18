@@ -3,11 +3,30 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { FiPause, FiPlay } from "react-icons/fi";
 
 const slides = [
-  { src: "/media/camera-production.jpg", alt: "A filmmaker operating a cinema camera on set" },
-  { src: "/media/worship-crowd.jpg", alt: "People gathered for a Christian worship service" },
-  { src: "/media/family-screen.jpg", alt: "A mother and daughter watching a programme together at home" },
+  {
+    src: "/media/hero-bible-study.jpg",
+    alt: "Three Nigerian women reading and discussing the Bible together",
+    verse: "Ye are the light of the world.",
+    reference: "Matthew 5:14",
+    chapter: "Light",
+  },
+  {
+    src: "/media/hero-scripture.jpg",
+    alt: "A man reading the Bible",
+    verse: "Let your light so shine before men.",
+    reference: "Matthew 5:16",
+    chapter: "Witness",
+  },
+  {
+    src: "/media/hero-camera-stage.jpg",
+    alt: "A filmmaker preparing a cinema camera on stage",
+    verse: "Declare his glory among the nations.",
+    reference: "Psalm 96:3",
+    chapter: "Story",
+  },
 ] as const;
 
 export function HomeHero() {
@@ -27,13 +46,18 @@ export function HomeHero() {
     if (paused || reducedMotion) return;
     const timer = window.setInterval(
       () => setActiveSlide((current) => (current + 1) % slides.length),
-      6500,
+      7200,
     );
     return () => window.clearInterval(timer);
   }, [paused, reducedMotion]);
 
+  const active = slides[activeSlide];
+
   return (
-    <section className="brand-hero home-screen" aria-labelledby="home-title">
+    <section
+      className={paused ? "brand-hero home-screen is-paused" : "brand-hero home-screen"}
+      aria-labelledby="home-title"
+    >
       <div className="hero-slides" aria-hidden="true">
         {slides.map((slide, index) => (
           <Image
@@ -49,34 +73,53 @@ export function HomeHero() {
         ))}
       </div>
       <div className="brand-hero-shade" aria-hidden="true" />
-      <div className="brand-hero-inner section-shell" data-reveal>
-        <p className="hero-overline">Christian media and technology from Nigeria</p>
-        <h1 id="home-title">Stories and experiences that help people see Jesus.</h1>
-        <p className="brand-hero-lede">
-          FaithCine creates films, Scripture tools, learning and live programmes for Africa and the wider world.
-        </p>
-        <div className="hero-actions">
-          <Link className="button button-primary" href="#what-we-do">Explore FaithCine</Link>
+      <div className="hero-light-sweep" aria-hidden="true" />
+
+      <div className="hero-stage section-shell">
+        <div className="brand-hero-inner" data-reveal="heading">
+          <p className="hero-overline"><span>FaithCine</span> Christian media from Nigeria</p>
+          <h1 id="home-title">Stories and experiences that help people see Jesus.</h1>
+          <p className="brand-hero-lede">
+            Films, Scripture tools, learning and live programmes shaped for Africa and the wider world.
+          </p>
+          <div className="hero-actions">
+            <Link className="button button-primary" href="#what-we-do">Explore FaithCine</Link>
+          </div>
         </div>
-      </div>
-      <div className="hero-carousel-controls section-shell">
-        <div className="hero-dots" role="group" aria-label="Choose hero background">
-          {slides.map((slide, index) => (
-            <button
-              key={slide.src}
-              type="button"
-              className={index === activeSlide ? "hero-dot is-active" : "hero-dot"}
-              aria-label={`Show image ${index + 1}: ${slide.alt}`}
-              aria-pressed={index === activeSlide}
-              onClick={() => setActiveSlide(index)}
-            />
-          ))}
+
+        <aside className="hero-scripture-card" aria-label={`Scripture focus: ${active.reference}`}>
+          <div className="hero-scripture-top">
+            <span>Scripture in focus</span>
+            <strong>0{activeSlide + 1}</strong>
+          </div>
+          <blockquote key={active.reference}>{active.verse}</blockquote>
+          <p>{active.reference} <span>KJV</span></p>
+        </aside>
+
+        <div className="hero-carousel-controls">
+          <div className="hero-chapters" role="group" aria-label="Choose a Scripture chapter">
+            {slides.map((slide, index) => (
+              <button
+                key={slide.src}
+                type="button"
+                className={index === activeSlide ? "hero-chapter is-active" : "hero-chapter"}
+                aria-label={`Show ${slide.chapter}: ${slide.reference}`}
+                aria-pressed={index === activeSlide}
+                onClick={() => setActiveSlide(index)}
+              >
+                <span>0{index + 1}</span>
+                <strong>{slide.chapter}</strong>
+                <i aria-hidden="true" />
+              </button>
+            ))}
+          </div>
+          {!reducedMotion && (
+            <button className="hero-pause" type="button" onClick={() => setPaused((value) => !value)}>
+              {paused ? <FiPlay aria-hidden="true" /> : <FiPause aria-hidden="true" />}
+              <span>{paused ? "Play" : "Pause"}</span>
+            </button>
+          )}
         </div>
-        {!reducedMotion && (
-          <button className="hero-pause" type="button" onClick={() => setPaused((value) => !value)}>
-            {paused ? "Play images" : "Pause images"}
-          </button>
-        )}
       </div>
     </section>
   );

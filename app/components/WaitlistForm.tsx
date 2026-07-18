@@ -46,7 +46,7 @@ export function WaitlistForm() {
   }
 
   return (
-    <form className="waitlist-form" onSubmit={submit} noValidate>
+    <form className="waitlist-form" onSubmit={submit} noValidate aria-busy={state === "loading"}>
       <div className="honeypot" aria-hidden="true">
         <label htmlFor="website">Website</label>
         <input id="website" name="website" tabIndex={-1} autoComplete="off" />

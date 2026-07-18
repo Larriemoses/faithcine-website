@@ -29,8 +29,8 @@ const experiences = [
     title: "FaithCine Selah",
     body: "A calmer path from a real moment into Scripture, prayer and reflection.",
     href: "/selah",
-    image: "/media/youth-community.jpg",
-    alt: "Young adults praying together during a church gathering",
+    image: "/media/selah-family-prayer.jpg",
+    alt: "A mother and son praying together inside a church",
   },
   {
     label: "The wider vision",
@@ -72,7 +72,7 @@ export default function Home() {
 
       <section id="what-we-do" className="home-screen home-categories" aria-labelledby="categories-title">
         <div className="section-shell">
-          <div className="home-heading" data-reveal>
+          <div className="home-heading" data-reveal="heading">
             <span className="home-section-index">01</span>
             <div>
               <p className="section-label">What FaithCine brings together</p>
@@ -88,7 +88,7 @@ export default function Home() {
                   className="home-category-card"
                   href={category.href}
                   key={category.title}
-                  data-reveal
+                  data-reveal="card"
                   style={{ "--reveal-delay": `${80 + index * 70}ms` } as CSSProperties}
                 >
                   <Icon aria-hidden="true" />
@@ -104,7 +104,7 @@ export default function Home() {
 
       <section className="home-screen home-process" aria-labelledby="process-title">
         <div className="section-shell home-process-grid">
-          <div className="home-process-copy" data-reveal>
+          <div className="home-process-copy" data-reveal="heading">
             <span className="home-section-index">02</span>
             <p className="section-label">How the work takes shape</p>
             <h2 id="process-title">Built here, with people in view.</h2>
@@ -118,15 +118,15 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="home-process-media" data-reveal style={{ "--reveal-delay": "120ms" } as CSSProperties}>
-            <Image src="/media/worship-crowd.jpg" alt="People gathered for a Christian worship service" fill sizes="(max-width: 980px) 100vw, 44vw" unoptimized />
+          <div className="home-process-media" data-reveal="image" style={{ "--reveal-delay": "120ms" } as CSSProperties}>
+            <Image src="/media/process-fellowship.jpg" alt="Young adults singing and praying together in a home" fill sizes="(max-width: 980px) 100vw, 44vw" unoptimized />
           </div>
         </div>
       </section>
 
       <section className="home-screen home-experiences" aria-labelledby="experiences-title">
         <div className="section-shell">
-          <div className="home-heading home-heading-compact" data-reveal>
+          <div className="home-heading home-heading-compact" data-reveal="heading">
             <span className="home-section-index">03</span>
             <div><p className="section-label">Explore FaithCine</p><h2 id="experiences-title">Start where you are.</h2></div>
             <Link className="text-link" href="/products">See the full vision <FiArrowUpRight aria-hidden="true" /></Link>
@@ -137,7 +137,7 @@ export default function Home() {
                 className="home-experience-card"
                 href={experience.href}
                 key={experience.title}
-                data-reveal
+                data-reveal="card"
                 style={{ "--reveal-delay": `${90 + index * 80}ms` } as CSSProperties}
               >
                 <div className="home-experience-media">
@@ -157,14 +157,14 @@ export default function Home() {
 
       <section className="home-screen home-journal" aria-labelledby="journal-title">
         <div className="section-shell">
-          <div className="home-heading home-heading-compact" data-reveal>
+          <div className="home-heading home-heading-compact" data-reveal="heading">
             <span className="home-section-index">04</span>
             <div><p className="section-label">FaithCine Journal</p><h2 id="journal-title">Ideas for faith in real life.</h2></div>
             <Link className="text-link" href="/blog">Visit the Journal <FiArrowUpRight aria-hidden="true" /></Link>
           </div>
           <div className="home-journal-grid">
             {articles.slice(0, 3).map((article, index) => (
-              <article key={article.slug} data-reveal style={{ "--reveal-delay": `${90 + index * 80}ms` } as CSSProperties}>
+              <article key={article.slug} data-reveal="card" style={{ "--reveal-delay": `${90 + index * 80}ms` } as CSSProperties}>
                 <Link className="home-journal-image" href={`/blog/${article.slug}`}>
                   <Image src={article.image} alt={article.imageAlt} fill sizes="(max-width: 760px) 100vw, 33vw" unoptimized />
                 </Link>
@@ -177,15 +177,25 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="early-access" className="home-screen home-conversion">
-        <div className="section-shell home-conversion-grid">
-          <div data-reveal>
-            <span className="home-section-index">05</span>
-            <p className="section-label">Stay connected</p>
-            <h2>Follow what FaithCine is building.</h2>
-            <p>Receive occasional updates and invitations to take part in Selah research and testing.</p>
+      <section id="early-access" className="home-screen home-connect" aria-labelledby="connect-title">
+        <div className="section-shell home-connect-shell">
+          <div className="home-connect-visual" data-reveal="image">
+            <Image src="/media/updates-studio.jpg" alt="A media creator recording in a studio" fill sizes="(max-width: 900px) 100vw, 50vw" unoptimized />
+            <div className="home-connect-shade" aria-hidden="true" />
+            <div className="home-connect-copy">
+              <span className="home-section-index">05</span>
+              <p className="section-label">Stay connected</p>
+              <h2 id="connect-title">New stories. Honest updates. No noise.</h2>
+              <p>Follow the films, tools, writing and programmes taking shape at FaithCine.</p>
+            </div>
           </div>
-          <div data-reveal style={{ "--reveal-delay": "120ms" } as CSSProperties}><WaitlistForm /></div>
+          <div className="home-connect-form" data-reveal="card" style={{ "--reveal-delay": "120ms" } as CSSProperties}>
+            <p className="section-label">FaithCine updates</p>
+            <h3>Keep in touch.</h3>
+            <p>Receive occasional updates and invitations to take part in Selah research and testing.</p>
+            <WaitlistForm />
+            <p className="home-connect-email">Prefer email? <a href="mailto:info@faithcine.com">info@faithcine.com</a></p>
+          </div>
         </div>
       </section>
     </>

@@ -1,10 +1,13 @@
 import { ensureFormsSchema } from "../../../db";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const topics = new Set(["Product feedback", "Partnership", "Research", "Media", "Contributing", "Other"]);
+const topics = new Set(["Product feedback", "Partnership", "Programmes and funding", "Research", "Media", "Contributing", "Other"]);
 
 export async function POST(request: Request) {
   try {
+    const origin = request.headers.get("origin");
+    if (origin && new URL(origin).host !== new URL(request.url).host) return Response.json({ error: "Request origin is not allowed." }, { status: 403 });
+    if (Number(request.headers.get("content-length") ?? 0) > 16_384) return Response.json({ error: "Request is too large." }, { status: 413 });
     const payload = (await request.json()) as Record<string, unknown>;
     if (String(payload.website ?? "")) return Response.json({ ok: true }, { status: 201 });
     const name = String(payload.name ?? "").trim();

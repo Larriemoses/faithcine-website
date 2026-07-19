@@ -37,7 +37,7 @@ export function ContactForm() {
       <label htmlFor="topic">What would you like to discuss?</label>
       <select id="topic" name="topic" required defaultValue="">
         <option value="" disabled>Select a topic</option>
-        <option>Product feedback</option><option>Partnership</option><option>Research</option><option>Media</option><option>Contributing</option><option>Other</option>
+        <option>Product feedback</option><option>Partnership</option><option>Programmes and funding</option><option>Research</option><option>Media</option><option>Contributing</option><option>Other</option>
       </select>
       <label htmlFor="message">Message</label>
       <textarea id="message" name="message" rows={7} minLength={10} maxLength={3000} required />

@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import { test } from "node:test";
 
-const routes = ["app/page.tsx", "app/selah/page.tsx", "app/products/page.tsx", "app/stories/page.tsx", "app/blog/page.tsx", "app/about/page.tsx", "app/contact/page.tsx", "app/privacy/page.tsx", "app/terms/page.tsx", "app/accessibility/page.tsx"];
+const routes = ["app/page.tsx", "app/selah/page.tsx", "app/products/page.tsx", "app/stories/page.tsx", "app/blog/page.tsx", "app/about/page.tsx", "app/partners/page.tsx", "app/contact/page.tsx", "app/privacy/page.tsx", "app/terms/page.tsx", "app/accessibility/page.tsx"];
 const articles = ["what-scripture-meditation-is", "bring-anxiety-to-scripture", "responsible-technology-and-faith"];
 
 test("all launch routes exist", () => {
@@ -18,10 +18,45 @@ test("contact is a primary navigation destination", () => {
 
 test("homepage hero keeps the study image and uses localized photography", () => {
   const hero = readFileSync("app/components/HomeHero.tsx", "utf8");
-  assert.match(hero, /hero-bible-study\.jpg/);
-  assert.match(hero, /hero-scripture-witness\.jpg/);
-  assert.match(hero, /hero-cinema-production\.jpg/);
+  assert.match(hero, /hero-bible-study\.webp/);
+  assert.match(hero, /hero-scripture-witness\.webp/);
+  assert.match(hero, /hero-cinema-production\.webp/);
   assert.doesNotMatch(hero, /hero-scripture-nigeria\.jpg|hero-nigerian-filmmaker\.jpg/);
+});
+
+test("launch metadata, icons, security headers and reviewer route are present", () => {
+  const layout = readFileSync("app/layout.tsx", "utf8");
+  const sitemap = readFileSync("app/sitemap.ts", "utf8");
+  const worker = readFileSync("worker/index.ts", "utf8");
+  assert.match(layout, /metadataBase:\s*new URL\("https:\/\/faithcine\.com"\)/);
+  assert.match(layout, /\/icon\.png/);
+  assert.match(layout, /\/og\.jpg/);
+  assert.doesNotMatch(layout, /from "next\/headers"|generateMetadata/);
+  assert.match(sitemap, /"\/partners"/);
+  assert.match(worker, /Content-Security-Policy/);
+  assert.match(worker, /Strict-Transport-Security/);
+});
+
+test("all committed media references resolve and use optimized editorial assets", () => {
+  const sourceFiles = [...routes, "app/components/HomeHero.tsx", ...articles.map((slug) => `content/blog/${slug}.md`)];
+  const sources = sourceFiles.map((file) => readFileSync(file, "utf8")).join("\n");
+  const mediaPaths = [...new Set(sources.match(/\/media\/[a-z0-9-]+\.(?:webp|jpg|png)/g) ?? [])];
+  assert.ok(mediaPaths.length >= 10, "expected the launch media library to be referenced");
+  for (const mediaPath of mediaPaths) assert.ok(existsSync(`public${mediaPath}`), `${mediaPath} should exist`);
+  assert.doesNotMatch(sources, /\/media\/[a-z0-9-]+\.jpg/);
+  for (const icon of ["public/icon.png", "public/apple-touch-icon.png", "public/og.jpg"]) assert.ok(existsSync(icon), `${icon} should exist`);
+});
+
+test("contact topics and request safeguards stay aligned", () => {
+  const form = readFileSync("app/components/ContactForm.tsx", "utf8");
+  const contactApi = readFileSync("app/api/contact/route.ts", "utf8");
+  const waitlistApi = readFileSync("app/api/waitlist/route.ts", "utf8");
+  assert.match(form, /Programmes and funding/);
+  assert.match(contactApi, /Programmes and funding/);
+  assert.match(contactApi, /content-length/);
+  assert.match(waitlistApi, /content-length/);
+  assert.match(contactApi, /Request origin is not allowed/);
+  assert.match(waitlistApi, /Request origin is not allowed/);
 });
 
 test("three publishable articles have required front matter", () => {

@@ -6,7 +6,7 @@ author: "FaithCine Editorial"
 publishedAt: "2026-07-16"
 updatedAt: "2026-07-16"
 pillar: "Technology and trust"
-image: "/media/creator-podcast.jpg"
+image: "/media/creator-podcast.webp"
 imageAlt: "A Black media creator recording a podcast"
 draft: false
 ---

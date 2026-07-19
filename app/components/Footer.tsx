@@ -22,6 +22,7 @@ export function Footer() {
           <div>
             <h2>Company</h2>
             <Link href="/about">About</Link>
+            <Link href="/partners">For partners</Link>
             <Link href="/contact">Contact</Link>
             <a href="mailto:info@faithcine.com">info@faithcine.com</a>
           </div>

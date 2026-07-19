@@ -23,7 +23,7 @@ export default function AboutPage() {
       <PageIntro eyebrow="About FaithCine" title="Christian media from Nigeria created to point people to Christ.">
         <p>FaithCine is a Christian media and technology company based in Nigeria. We are developing films, guided Scripture tools, learning resources, and live programmes for young people and families across Africa and beyond.</p>
       </PageIntro>
-      <section className="about-image-band"><Image src="/media/worship-crowd.jpg" alt="People gathered for a Christian worship service" fill sizes="100vw" unoptimized /><p>FaithCine begins in Nigeria.<br />The vision reaches further.</p></section>
+      <section className="about-image-band"><Image src="/media/worship-crowd.webp" alt="People gathered for a Christian worship service" fill sizes="100vw" unoptimized /><p>FaithCine begins in Nigeria.<br />The vision reaches further.</p></section>
       <section className="section-shell editorial-split about-origin">
         <div><p className="section-number">Why FaithCine exists</p><h2>The media people return to every day shapes what they notice, value, and remember.</h2></div>
         <div><p className="large-copy">Christian media should take part in that conversation with biblical truth, creative discipline, and a close understanding of the people it hopes to serve.</p><p>Our first product is FaithCine Selah, a guided Scripture product currently in research and design. FaithCine Stories is also in early development. Bible study, children&apos;s media, live programmes, and creative production are planned for later.</p></div>

@@ -1,57 +1,78 @@
-import type { Metadata } from "next";
-import { headers } from "next/headers";
+import type { Metadata, Viewport } from "next";
 import { ConsentBanner } from "./components/ConsentBanner";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import "@fontsource-variable/inter";
 import "./globals.css";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host =
-    requestHeaders.get("x-forwarded-host") ??
-    requestHeaders.get("host") ??
-    "faithcine.com";
-  const protocol =
-    requestHeaders.get("x-forwarded-proto") ??
-    (host.includes("localhost") || host.startsWith("127.") ? "http" : "https");
-  const metadataBase = new URL(`${protocol}://${host}`);
-
-  return {
-    metadataBase,
-    title: { default: "FaithCine", template: "%s | FaithCine" },
-    description:
-      "FaithCine develops Christian films, guided Scripture tools, learning resources, and live programmes from Nigeria for audiences across Africa.",
-    applicationName: "FaithCine",
-    openGraph: {
-      type: "website",
-      siteName: "FaithCine",
-      title: "FaithCine | Christian media from Nigeria for Africa",
-      description:
-        "Christian media and technology from Nigeria for audiences across Africa.",
-      images: [{ url: "/og.png", width: 1730, height: 909, alt: "FaithCine: Stories and experiences that help people see Jesus" }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "FaithCine | Christian media from Nigeria for Africa",
-      description: "Christian media and technology from Nigeria for audiences across Africa.",
-      images: ["/og.png"],
-    },
-  };
-}
-
-const organizationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "FaithCine",
-  url: "https://faithcine.com",
+export const metadata: Metadata = {
+  metadataBase: new URL("https://faithcine.com"),
+  title: { default: "FaithCine", template: "%s | FaithCine" },
   description:
-    "A Christian media and technology company in Nigeria developing films, Scripture tools, learning resources, and live programmes for Africa and the wider world.",
-  sameAs: [
-    "https://www.youtube.com/@faithcine_official",
-    "https://www.instagram.com/faithcine_official/",
-    "https://www.tiktok.com/@faithcine_official",
-    "https://www.facebook.com/faithcine",
+    "FaithCine develops Christian films, guided Scripture tools, learning resources, and live programmes from Nigeria for audiences across Africa.",
+  applicationName: "FaithCine",
+  category: "Christian media and technology",
+  manifest: "/manifest.webmanifest",
+  icons: {
+    icon: [{ url: "/icon.png", type: "image/png", sizes: "512x512" }],
+    shortcut: "/icon.png",
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  robots: { index: true, follow: true },
+  openGraph: {
+    type: "website",
+    url: "https://faithcine.com",
+    siteName: "FaithCine",
+    title: "FaithCine | Christian media from Nigeria for Africa",
+    description: "Christian media and technology from Nigeria for audiences across Africa.",
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "FaithCine: Stories and experiences that help people see Jesus" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FaithCine | Christian media from Nigeria for Africa",
+    description: "Christian media and technology from Nigeria for audiences across Africa.",
+    images: ["/og.jpg"],
+  },
+};
+
+export const viewport: Viewport = {
+  colorScheme: "dark light",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#020202" },
+  ],
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://faithcine.com/#organization",
+      name: "FaithCine",
+      url: "https://faithcine.com",
+      logo: "https://faithcine.com/icon.png",
+      email: "info@faithcine.com",
+      foundingLocation: { "@type": "Country", name: "Nigeria" },
+      areaServed: ["Nigeria", "Africa"],
+      description:
+        "A Christian media and technology company in Nigeria developing films, Scripture tools, learning resources, and live programmes for Africa and the wider world.",
+      knowsAbout: ["Christian media", "Scripture tools", "film production", "responsible technology", "digital learning"],
+      sameAs: [
+        "https://www.youtube.com/@faithcine_official",
+        "https://www.instagram.com/faithcine_official/",
+        "https://www.tiktok.com/@faithcine_official",
+        "https://www.facebook.com/faithcine",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://faithcine.com/#website",
+      url: "https://faithcine.com",
+      name: "FaithCine",
+      publisher: { "@id": "https://faithcine.com/#organization" },
+      inLanguage: "en",
+    },
   ],
 };
 
@@ -69,7 +90,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <ConsentBanner />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </body>
     </html>

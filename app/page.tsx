@@ -21,7 +21,7 @@ const experiences = [
     title: "FaithCine Stories",
     body: "Christian stories shaped by faith, honest choices and African life.",
     href: "/stories",
-    image: "/media/camera-production.jpg",
+    image: "/media/camera-production.webp",
     alt: "A filmmaker operating a cinema camera on set",
   },
   {
@@ -29,7 +29,7 @@ const experiences = [
     title: "FaithCine Selah",
     body: "A calmer path from a real moment into Scripture, prayer and reflection.",
     href: "/selah",
-    image: "/media/selah-family-prayer.jpg",
+    image: "/media/selah-family-prayer.webp",
     alt: "A mother and son praying together inside a church",
   },
   {
@@ -37,7 +37,7 @@ const experiences = [
     title: "FaithCine Products",
     body: "See the films, tools, learning resources and shared experiences taking shape.",
     href: "/products",
-    image: "/media/family-screen.jpg",
+    image: "/media/family-screen.webp",
     alt: "A mother and daughter watching a programme together at home",
   },
 ] as const;
@@ -119,7 +119,7 @@ export default function Home() {
             </div>
           </div>
           <div className="home-process-media" data-reveal="image" style={{ "--reveal-delay": "120ms" } as CSSProperties}>
-            <Image src="/media/process-fellowship.jpg" alt="Young adults singing and praying together in a home" fill sizes="(max-width: 980px) 100vw, 44vw" unoptimized />
+            <Image src="/media/process-fellowship.webp" alt="Young adults singing and praying together in a home" fill sizes="(max-width: 980px) 100vw, 44vw" unoptimized />
           </div>
         </div>
       </section>
@@ -180,7 +180,7 @@ export default function Home() {
       <section id="early-access" className="home-screen home-connect" aria-labelledby="connect-title">
         <div className="section-shell home-connect-shell">
           <div className="home-connect-visual" data-reveal="image">
-            <Image src="/media/updates-studio.jpg" alt="A media creator recording in a studio" fill sizes="(max-width: 900px) 100vw, 50vw" unoptimized />
+            <Image src="/media/updates-studio.webp" alt="A media creator recording in a studio" fill sizes="(max-width: 900px) 100vw, 50vw" unoptimized />
             <div className="home-connect-shade" aria-hidden="true" />
             <div className="home-connect-copy">
               <span className="home-section-index">05</span>

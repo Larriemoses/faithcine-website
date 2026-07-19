@@ -4,6 +4,9 @@ const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(request: Request) {
   try {
+    const origin = request.headers.get("origin");
+    if (origin && new URL(origin).host !== new URL(request.url).host) return Response.json({ error: "Request origin is not allowed." }, { status: 403 });
+    if (Number(request.headers.get("content-length") ?? 0) > 4_096) return Response.json({ error: "Request is too large." }, { status: 413 });
     const payload = (await request.json()) as { email?: string; researchConsent?: boolean; website?: string };
     if (payload.website) return Response.json({ ok: true }, { status: 201 });
     const email = payload.email?.trim().toLowerCase() ?? "";

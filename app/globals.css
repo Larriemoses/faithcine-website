@@ -315,6 +315,26 @@ textarea { resize: vertical; }
 .values-grid-four article:nth-child(3n) { border-right: 1px solid var(--line); }
 .values-grid-four article:nth-child(4n) { border-right: 0; }
 
+.partner-facts { margin-block: clamp(2.5rem, 5vw, 4.5rem); display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); }
+.partner-facts article { min-width: 0; padding: clamp(1.4rem, 2.5vw, 2.25rem); border-right: 1px solid var(--line); }
+.partner-facts article:last-child { border-right: 0; }
+.partner-facts p { margin: 0 0 1.3rem; color: var(--muted); font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.partner-facts h2 { margin: 0; font-size: clamp(1.25rem, 2vw, 1.85rem); line-height: 1.2; }
+.programme-direction { padding-block: var(--section-space); border-block: 1px solid var(--line); }
+.programme-direction-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); }
+.programme-direction-grid article { min-height: 19rem; padding: clamp(1.6rem, 3vw, 2.5rem); border-right: 1px solid var(--line); }
+.programme-direction-grid article:last-child { border-right: 0; }
+.programme-direction-grid span { color: var(--brand-blue); font-size: .75rem; font-weight: 700; }
+.programme-direction-grid h3 { margin: 3rem 0 .9rem; font-size: clamp(1.35rem, 2vw, 1.85rem); }
+.programme-direction-grid p { margin: 0; color: var(--muted); }
+.programme-stage { border-top: 0; }
+.partner-asks { grid-template-columns: repeat(2, 1fr); }
+.partner-asks article,
+.partner-asks article:nth-child(2n),
+.partner-asks article:nth-child(3n) { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.partner-asks article:nth-child(2n) { border-right: 0; }
+.partner-asks article:nth-last-child(-n+2) { border-bottom: 0; }
+
 .story-manifesto { padding-block: var(--section-space); display: grid; grid-template-columns: repeat(5,1fr); }
 .story-manifesto p { margin: 0; padding: 3rem 1rem; border: 1px solid var(--line); border-right: 0; text-align: center; font-size: 1.1rem; font-weight: 600; }
 .story-manifesto p:last-child { border-right: 1px solid var(--line); }
@@ -429,6 +449,14 @@ textarea { resize: vertical; }
   .journal-hero-foot nav { justify-content: flex-start; }
   .featured-story-image { min-height: 28rem; }
   .editorial-split, .trust-band, .team-stage, .contact-layout, .footer-top, .conversion, .editorial-standards { grid-template-columns: 1fr; }
+  .partner-facts { grid-template-columns: repeat(2, 1fr); }
+  .partner-facts article { border-bottom: 1px solid var(--line); }
+  .partner-facts article:nth-child(2n) { border-right: 0; }
+  .partner-facts article:nth-last-child(-n+2) { border-bottom: 0; }
+  .programme-direction-grid { grid-template-columns: 1fr; }
+  .programme-direction-grid article { min-height: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+  .programme-direction-grid article:last-child { border-bottom: 0; }
+  .programme-direction-grid h3 { margin-top: 1.75rem; }
   .flow { grid-template-columns: repeat(2,1fr); }
   .flow li:nth-child(2n) { border-right: 0; }
   .flow li:nth-child(n+3) { border-top: 1px solid var(--line); }
@@ -503,6 +531,17 @@ textarea { resize: vertical; }
   .values-grid { grid-template-columns: 1fr; }
   .values-grid article, .values-grid article:nth-child(2n), .values-grid article:nth-child(3n) { min-height: auto; border-right: 0; border-bottom: 1px solid var(--line); }
   .values-grid article:last-child { border-bottom: 0; }
+  .partner-facts { grid-template-columns: 1fr; }
+  .partner-facts article,
+  .partner-facts article:nth-child(2n),
+  .partner-facts article:nth-last-child(-n+2) { border-right: 0; border-bottom: 1px solid var(--line); }
+  .partner-facts article:last-child { border-bottom: 0; }
+  .partner-asks { grid-template-columns: 1fr; }
+  .partner-asks article,
+  .partner-asks article:nth-child(2n),
+  .partner-asks article:nth-child(3n),
+  .partner-asks article:nth-last-child(-n+2) { border-right: 0; border-bottom: 1px solid var(--line); }
+  .partner-asks article:last-child { border-bottom: 0; }
   .story-manifesto { grid-template-columns: 1fr; }
   .story-manifesto p { padding: 1.25rem; border-right: 1px solid var(--line); border-bottom: 0; }
   .story-manifesto p:last-child { border-bottom: 1px solid var(--line); }

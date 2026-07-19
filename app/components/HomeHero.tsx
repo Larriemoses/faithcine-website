@@ -7,21 +7,21 @@ import { FiPause, FiPlay } from "react-icons/fi";
 
 const slides = [
   {
-    src: "/media/hero-bible-study.jpg",
+    src: "/media/hero-bible-study.webp",
     alt: "Three Nigerian women reading and discussing the Bible together",
     verse: "Ye are the light of the world.",
     reference: "Matthew 5:14",
     chapter: "Light",
   },
   {
-    src: "/media/hero-scripture-witness.jpg",
+    src: "/media/hero-scripture-witness.webp",
     alt: "A young Ethiopian man holding a Bible beneath an illuminated cross in Addis Ababa",
     verse: "Let your light so shine before men.",
     reference: "Matthew 5:16",
     chapter: "Witness",
   },
   {
-    src: "/media/hero-cinema-production.jpg",
+    src: "/media/hero-cinema-production.webp",
     alt: "A cinematographer operating an ARRI cinema camera on a professional set",
     verse: "Declare his glory among the nations.",
     reference: "Psalm 96:3",

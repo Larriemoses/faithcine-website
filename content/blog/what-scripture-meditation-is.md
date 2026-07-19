@@ -6,7 +6,7 @@ author: "FaithCine Editorial"
 publishedAt: "2026-07-16"
 updatedAt: "2026-07-16"
 pillar: "Scripture practice"
-image: "/media/worship-crowd.jpg"
+image: "/media/worship-crowd.webp"
 imageAlt: "A congregation gathered in worship"
 draft: false
 ---

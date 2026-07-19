@@ -5,11 +5,11 @@
 
 ### Stories that point to Christ.
 
-[![Website](https://img.shields.io/badge/Website-live-0F62FE?style=for-the-badge)](https://faithcine-selah.robust-mesa-9041.chatgpt.site)
+[![Website](https://img.shields.io/badge/Website-faithcine.com-0F62FE?style=for-the-badge)](https://faithcine.com)
 [![React](https://img.shields.io/badge/React-19-111111?style=for-the-badge&logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-111111?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 
-Christ-centered films, stories, live experiences, learning, and community. Created from Africa for a wider world.
+Christian films, guided Scripture tools, learning resources, and live programmes created from Nigeria for Africa and the wider world.
 
 </div>
 

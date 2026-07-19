@@ -9,6 +9,21 @@ test("all launch routes exist", () => {
   for (const route of routes) assert.ok(existsSync(route), `${route} should exist`);
 });
 
+test("contact is a primary navigation destination", () => {
+  const header = readFileSync("app/components/Header.tsx", "utf8");
+  const about = readFileSync("app/about/page.tsx", "utf8");
+  assert.match(header, /\["Contact us", "\/contact"\]/);
+  assert.doesNotMatch(about, /href="\/contact"|Work with us/);
+});
+
+test("homepage hero keeps the study image and uses localized photography", () => {
+  const hero = readFileSync("app/components/HomeHero.tsx", "utf8");
+  assert.match(hero, /hero-bible-study\.jpg/);
+  assert.match(hero, /hero-scripture-nigeria\.jpg/);
+  assert.match(hero, /hero-nigerian-filmmaker\.jpg/);
+  assert.doesNotMatch(hero, /hero-scripture\.jpg|hero-camera-stage\.jpg/);
+});
+
 test("three publishable articles have required front matter", () => {
   for (const slug of articles) {
     const source = readFileSync(`content/blog/${slug}.md`, "utf8");

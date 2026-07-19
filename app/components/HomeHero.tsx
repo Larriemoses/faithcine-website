@@ -14,15 +14,15 @@ const slides = [
     chapter: "Light",
   },
   {
-    src: "/media/hero-scripture.jpg",
-    alt: "A man reading the Bible",
+    src: "/media/hero-scripture-nigeria.jpg",
+    alt: "A Nigerian man holding a Holy Bible at an outdoor gathering in Ibadan",
     verse: "Let your light so shine before men.",
     reference: "Matthew 5:16",
     chapter: "Witness",
   },
   {
-    src: "/media/hero-camera-stage.jpg",
-    alt: "A filmmaker preparing a cinema camera on stage",
+    src: "/media/hero-nigerian-filmmaker.jpg",
+    alt: "An African filmmaker operating a gimbal-mounted camera on location",
     verse: "Declare his glory among the nations.",
     reference: "Psalm 96:3",
     chapter: "Story",
@@ -62,7 +62,7 @@ export function HomeHero() {
         {slides.map((slide, index) => (
           <Image
             key={slide.src}
-            className={index === activeSlide ? "hero-slide is-active" : "hero-slide"}
+            className={`${index === activeSlide ? "hero-slide is-active" : "hero-slide"} hero-slide-${slide.chapter.toLowerCase()}`}
             src={slide.src}
             alt=""
             fill

@@ -11,6 +11,7 @@ const navItems = [
   ["Products", "/products"],
   ["Journal", "/blog"],
   ["About", "/about"],
+  ["Contact us", "/contact"],
 ] as const;
 
 export function Header() {

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { PageIntro } from "../components/PageIntro";
 
 export const metadata: Metadata = {
@@ -34,7 +33,7 @@ export default function AboutPage() {
         <article><span className="section-index">02</span><p className="section-number">Vision</p><h2>To become a Christian media and technology company from Africa known for thoughtful stories, faithful Scripture tools, and work that helps people see Christ more clearly.</h2></article>
       </section>
       <section className="section-shell values-section"><div className="section-heading"><p className="section-number">What guides our decisions</p><h2>Values for the work ahead.</h2></div><div className="values-grid">{values.map(([number, title, body]) => <article key={title}><span>{number}</span><h3>{title}</h3><p>{body}</p></article>)}</div></section>
-      <section className="section-shell team-stage"><div><p className="section-number">Current stage</p><h2>We are starting with Selah.</h2></div><div><p>FaithCine is at an early stage. Selah is in design and development. FaithCine Stories is in early development. The other products remain plans for later. We will publish research, prototypes, partnerships, and results only after they exist and can be verified.</p><Link className="button button-primary" href="/contact">Work with us</Link></div></section>
+      <section className="section-shell team-stage"><div><p className="section-number">Current stage</p><h2>We are starting with Selah.</h2></div><div><p>FaithCine is at an early stage. Selah is in design and development. FaithCine Stories is in early development. The other products remain plans for later. We will publish research, prototypes, partnerships, and results only after they exist and can be verified.</p></div></section>
     </>
   );
 }

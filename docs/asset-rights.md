@@ -5,8 +5,8 @@ All current editorial photography is stored locally in `public/media/` and is us
 | Local asset | Creator | Source | Placement |
 | --- | --- | --- | --- |
 | `hero-bible-study.jpg` | Ninthgrid | [African women engaging in Bible study together](https://www.pexels.com/photo/african-women-engaging-in-bible-study-together-30689318/) | Homepage hero |
-| `hero-scripture.jpg` | cottonbro studio | [A pastor holding a Bible](https://www.pexels.com/photo/a-pastor-holding-a-bible-6284489/) | Homepage hero |
-| `hero-camera-stage.jpg` | Caleb Oquendo | [Cameraman filming at work](https://www.pexels.com/photo/unrecognizable-black-cameraman-filming-video-on-camera-at-work-4662725/) | Homepage hero |
+| `hero-scripture-nigeria.jpg` | Tosin Superson | [Man holding a Holy Bible in Nigeria](https://www.pexels.com/photo/close-up-of-a-man-holding-a-holy-bible-in-nigeria-32080727/) | Homepage hero |
+| `hero-nigerian-filmmaker.jpg` | Frederick Adegoke Snr. | [Filmmaker directing with a handheld camera](https://www.pexels.com/photo/filmmaker-directing-scene-with-handheld-camera-37176740/) | Homepage hero |
 | `process-fellowship.jpg` | Tima Miroshnichenko | [Group of friends singing together](https://www.pexels.com/photo/group-of-friends-singing-together-6860844/) | Homepage process section |
 | `selah-family-prayer.jpg` | cottonbro studio | [Mother and son praying in church](https://www.pexels.com/photo/mother-and-daughter-praying-in-the-church-9577188/) | Homepage Selah experience |
 | `updates-studio.jpg` | George Milton | [Young Black woman recording with a microphone](https://www.pexels.com/photo/trendy-young-black-woman-recording-audio-with-microphone-in-studio-6953866/) | Homepage updates section |

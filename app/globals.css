@@ -716,8 +716,8 @@ html:has(.home-screen) { scroll-snap-type: none; }
 }
 .hero-slide { object-position: center; filter: saturate(.86) contrast(1.03); }
 .hero-slide-light { object-position: center 48%; filter: saturate(.82) contrast(1.04) brightness(.88); }
-.hero-slide-witness { object-position: center 44%; filter: saturate(.72) contrast(1.08) brightness(.8); }
-.hero-slide-story { object-position: center 45%; filter: saturate(.7) contrast(1.08) brightness(.82); }
+.hero-slide-witness { object-position: 56% center; filter: saturate(.58) contrast(1.08) brightness(.9); }
+.hero-slide-story { object-position: 58% center; filter: saturate(.66) contrast(1.07) brightness(.86); }
 .brand-hero-shade {
   background:
     linear-gradient(90deg, rgba(1, 10, 28, .96) 0%, rgba(1, 10, 28, .79) 42%, rgba(1, 10, 28, .2) 75%),
@@ -868,8 +868,8 @@ html:has(.home-screen) { scroll-snap-type: none; }
   .brand-hero-inner { width: 100%; padding: 0; }
   .brand-hero-shade { background: linear-gradient(0deg, rgba(1,10,28,.97) 0%, rgba(1,10,28,.76) 62%, rgba(1,10,28,.32) 100%); }
   .hero-slide-light { object-position: 62% center; }
-  .hero-slide-witness { object-position: 54% center; }
-  .hero-slide-story { object-position: 56% center; }
+  .hero-slide-witness { object-position: 62% center; }
+  .hero-slide-story { object-position: 66% center; }
   .brand-hero h1 { max-width: 13ch; font-size: clamp(2.3rem, 10vw, 3.05rem); }
   .brand-hero-lede { max-width: 31rem; font-size: .9rem; line-height: 1.55; }
   .hero-overline { margin-bottom: .95rem; font-size: .58rem; }

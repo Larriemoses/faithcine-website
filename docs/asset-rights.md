@@ -1,12 +1,12 @@
 # Asset rights register
 
-All current editorial photography is stored locally in `public/media/` and is used under the Pexels licence. Source pages were reviewed on 18 July 2026.
+All current editorial photography is stored locally in `public/media/` and is used under the Pexels or Unsplash licence. Source pages were reviewed on 18 and 19 July 2026.
 
 | Local asset | Creator | Source | Placement |
 | --- | --- | --- | --- |
 | `hero-bible-study.jpg` | Ninthgrid | [African women engaging in Bible study together](https://www.pexels.com/photo/african-women-engaging-in-bible-study-together-30689318/) | Homepage hero |
-| `hero-scripture-nigeria.jpg` | Tosin Superson | [Man holding a Holy Bible in Nigeria](https://www.pexels.com/photo/close-up-of-a-man-holding-a-holy-bible-in-nigeria-32080727/) | Homepage hero |
-| `hero-nigerian-filmmaker.jpg` | Frederick Adegoke Snr. | [Filmmaker directing with a handheld camera](https://www.pexels.com/photo/filmmaker-directing-scene-with-handheld-camera-37176740/) | Homepage hero |
+| `hero-scripture-witness.jpg` | Gift Habeshaw | [Man holding a Bible beneath a cross in Addis Ababa](https://unsplash.com/photos/man-in-black-top-holding-book-d1n8WkKvaiU) | Homepage hero |
+| `hero-cinema-production.jpg` | Cemrecan Yurtman | [Cinematographer operating an ARRI cinema camera](https://unsplash.com/photos/a-bearded-man-operating-a-professional-video-camera-SMfwT3H1P8c) | Homepage hero |
 | `process-fellowship.jpg` | Tima Miroshnichenko | [Group of friends singing together](https://www.pexels.com/photo/group-of-friends-singing-together-6860844/) | Homepage process section |
 | `selah-family-prayer.jpg` | cottonbro studio | [Mother and son praying in church](https://www.pexels.com/photo/mother-and-daughter-praying-in-the-church-9577188/) | Homepage Selah experience |
 | `updates-studio.jpg` | George Milton | [Young Black woman recording with a microphone](https://www.pexels.com/photo/trendy-young-black-woman-recording-audio-with-microphone-in-studio-6953866/) | Homepage updates section |

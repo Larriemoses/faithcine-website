@@ -19,9 +19,9 @@ test("contact is a primary navigation destination", () => {
 test("homepage hero keeps the study image and uses localized photography", () => {
   const hero = readFileSync("app/components/HomeHero.tsx", "utf8");
   assert.match(hero, /hero-bible-study\.jpg/);
-  assert.match(hero, /hero-scripture-nigeria\.jpg/);
-  assert.match(hero, /hero-nigerian-filmmaker\.jpg/);
-  assert.doesNotMatch(hero, /hero-scripture\.jpg|hero-camera-stage\.jpg/);
+  assert.match(hero, /hero-scripture-witness\.jpg/);
+  assert.match(hero, /hero-cinema-production\.jpg/);
+  assert.doesNotMatch(hero, /hero-scripture-nigeria\.jpg|hero-nigerian-filmmaker\.jpg/);
 });
 
 test("three publishable articles have required front matter", () => {

@@ -19,8 +19,9 @@ test("contact is a primary navigation destination", () => {
 test("homepage hero keeps the study image and uses localized photography", () => {
   const hero = readFileSync("app/components/HomeHero.tsx", "utf8");
   assert.match(hero, /hero-bible-study\.webp/);
-  assert.match(hero, /hero-scripture-witness\.webp/);
+  assert.match(hero, /hero-child-bible-study\.webp/);
   assert.match(hero, /hero-cinema-production\.webp/);
+  assert.match(hero, /Deuteronomy 6:7/);
   assert.doesNotMatch(hero, /hero-scripture-nigeria\.jpg|hero-nigerian-filmmaker\.jpg/);
 });
 

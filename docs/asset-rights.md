@@ -5,7 +5,7 @@ All current editorial photography is stored locally in `public/media/` and is us
 | Local asset | Creator | Source | Placement |
 | --- | --- | --- | --- |
 | `hero-bible-study.webp` | Ninthgrid | [African women engaging in Bible study together](https://www.pexels.com/photo/african-women-engaging-in-bible-study-together-30689318/) | Homepage hero |
-| `hero-scripture-witness.webp` | Gift Habeshaw | [Man holding a Bible beneath a cross in Addis Ababa](https://unsplash.com/photos/man-in-black-top-holding-book-d1n8WkKvaiU) | Homepage hero |
+| `hero-child-bible-study.webp` | Yosi Prihantoro | [A child reading the Bible](https://unsplash.com/photos/a-child-reads-the-bible-iJKuxFDOaEE) | Homepage hero |
 | `hero-cinema-production.webp` | Cemrecan Yurtman | [Cinematographer operating an ARRI cinema camera](https://unsplash.com/photos/a-bearded-man-operating-a-professional-video-camera-SMfwT3H1P8c) | Homepage hero |
 | `process-fellowship.webp` | Tima Miroshnichenko | [Group of friends singing together](https://www.pexels.com/photo/group-of-friends-singing-together-6860844/) | Homepage process section |
 | `selah-family-prayer.webp` | cottonbro studio | [Mother and son praying in church](https://www.pexels.com/photo/mother-and-daughter-praying-in-the-church-9577188/) | Homepage Selah experience |

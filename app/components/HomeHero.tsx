@@ -14,11 +14,11 @@ const slides = [
     chapter: "Light",
   },
   {
-    src: "/media/hero-scripture-witness.webp",
-    alt: "A young Ethiopian man holding a Bible beneath an illuminated cross in Addis Ababa",
-    verse: "Let your light so shine before men.",
-    reference: "Matthew 5:16",
-    chapter: "Witness",
+    src: "/media/hero-child-bible-study.webp",
+    alt: "A child reading an open Bible during a study session",
+    verse: "Thou shalt teach them diligently unto thy children.",
+    reference: "Deuteronomy 6:7",
+    chapter: "Teach",
   },
   {
     src: "/media/hero-cinema-production.webp",

@@ -77,10 +77,10 @@ export function HomeHero() {
 
       <div className="hero-stage section-shell">
         <div className="brand-hero-inner" data-reveal="heading">
-          <p className="hero-overline"><span>FaithCine</span> Christian media from Nigeria</p>
+          <p className="hero-overline"><span>FaithCine</span> Christian media for every screen</p>
           <h1 id="home-title">Stories and experiences that help people see Jesus.</h1>
           <p className="brand-hero-lede">
-            Films, Scripture tools, learning and live programmes shaped for Africa and the wider world.
+            Christian films, Scripture tools, children&apos;s media and live experiences created to help people see Jesus.
           </p>
           <div className="hero-actions">
             <Link className="button button-primary" href="#what-we-do">Explore FaithCine</Link>

@@ -9,7 +9,7 @@
 [![React](https://img.shields.io/badge/React-19-111111?style=for-the-badge&logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-111111?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 
-Christian films, guided Scripture tools, learning resources, and live programmes created from Nigeria for Africa and the wider world.
+Christian films, documentaries, Scripture tools, children&apos;s media, learning resources, and live programmes created to promote the Gospel and help people see Jesus.
 
 </div>
 

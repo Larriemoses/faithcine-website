@@ -9,9 +9,9 @@ import { WaitlistForm } from "./components/WaitlistForm";
 import { articles } from "./lib/articles";
 
 export const metadata: Metadata = {
-  title: { absolute: "FaithCine | Christian media from Nigeria for Africa" },
+  title: { absolute: "FaithCine | Christian films and Gospel media" },
   description:
-    "FaithCine develops Christian films, guided Scripture tools, learning resources, and live programmes from Nigeria for audiences across Africa.",
+    "FaithCine develops Christian films, documentaries, Scripture tools, children's media, learning resources, and live programmes that help people see Jesus.",
   alternates: { canonical: "/" },
 };
 
@@ -19,7 +19,7 @@ const experiences = [
   {
     label: "Films and visual stories",
     title: "FaithCine Stories",
-    body: "Christian stories shaped by faith, honest choices and African life.",
+    body: "Christian films, series and documentaries centred on the Gospel and the realities of faith.",
     href: "/stories",
     image: "/media/camera-production.webp",
     alt: "A filmmaker operating a cinema camera on set",
@@ -43,14 +43,14 @@ const experiences = [
 ] as const;
 
 const categories = [
-  { icon: FiFilm, title: "Films and stories", body: "Faith-rooted stories made with African lives and audiences in view.", href: "/stories" },
+  { icon: FiFilm, title: "Christian films and stories", body: "Gospel-centred films, shorts, series and documentaries for audiences everywhere.", href: "/stories" },
   { icon: FiBookOpen, title: "Scripture and reflection", body: "Guided experiences that keep biblical text clear and traceable.", href: "/selah" },
   { icon: FiHeadphones, title: "Learning and conversations", body: "Useful writing, audio and teaching for everyday Christian practice.", href: "/blog" },
   { icon: FiUsers, title: "Community and live programmes", body: "Gatherings that make room to watch, learn, worship and respond together.", href: "/about" },
 ] as const;
 
 const process = [
-  ["01", "Listen first", "We begin with how people in African homes, churches and communities encounter faith and media."],
+  ["01", "Listen first", "We begin with how people in homes, churches and communities encounter faith and media."],
   ["02", "Shape the experience", "Writers, filmmakers, teachers and technologists turn a clear need into focused work."],
   ["03", "Learn with people", "Research and testing help us see what is useful, confusing or still unfinished."],
   ["04", "Share what serves", "We publish with clear sources, honest limits and a way for people to respond."],
@@ -78,7 +78,7 @@ export default function Home() {
               <p className="section-label">What FaithCine brings together</p>
               <h2 id="categories-title">Faith, carried through media people already use.</h2>
             </div>
-            <p>One Christian media vision, expressed through stories, Scripture, learning and shared experience.</p>
+            <p>One Christian media mission, expressed through stories, Scripture, learning and shared experience.</p>
           </div>
           <div className="home-category-grid">
             {categories.map((category, index) => {
@@ -107,8 +107,8 @@ export default function Home() {
           <div className="home-process-copy" data-reveal="heading">
             <span className="home-section-index">02</span>
             <p className="section-label">How the work takes shape</p>
-            <h2 id="process-title">Built here, with people in view.</h2>
-            <p>FaithCine begins in Nigeria and works with African realities from the first idea onward.</p>
+            <h2 id="process-title">Built with people in view.</h2>
+            <p>FaithCine is based in Nigeria. We begin close to home while building Christian media for audiences everywhere.</p>
             <div className="home-process-steps">
               {process.map(([number, title, body]) => (
                 <article key={number}>

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://faithcine.com"),
   title: { default: "FaithCine", template: "%s | FaithCine" },
   description:
-    "FaithCine develops Christian films, guided Scripture tools, learning resources, and live programmes from Nigeria for audiences across Africa.",
+    "FaithCine develops Christian films, documentaries, Scripture tools, children's media, learning resources, and live programmes that help people see Jesus.",
   applicationName: "FaithCine",
   category: "Christian media and technology",
   manifest: "/manifest.webmanifest",
@@ -23,14 +23,14 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://faithcine.com",
     siteName: "FaithCine",
-    title: "FaithCine | Christian media from Nigeria for Africa",
-    description: "Christian media and technology from Nigeria for audiences across Africa.",
+    title: "FaithCine | Christian films and Gospel media",
+    description: "Christian films, documentaries, Scripture tools, and media created to promote the Gospel and help people see Jesus.",
     images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "FaithCine: Stories and experiences that help people see Jesus" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "FaithCine | Christian media from Nigeria for Africa",
-    description: "Christian media and technology from Nigeria for audiences across Africa.",
+    title: "FaithCine | Christian films and Gospel media",
+    description: "Christian films, documentaries, Scripture tools, and media created to promote the Gospel and help people see Jesus.",
     images: ["/og.jpg"],
   },
 };
@@ -54,10 +54,10 @@ const structuredData = {
       logo: "https://faithcine.com/icon.png",
       email: "info@faithcine.com",
       foundingLocation: { "@type": "Country", name: "Nigeria" },
-      areaServed: ["Nigeria", "Africa"],
+      areaServed: "Worldwide",
       description:
-        "A Christian media and technology company in Nigeria developing films, Scripture tools, learning resources, and live programmes for Africa and the wider world.",
-      knowsAbout: ["Christian media", "Scripture tools", "film production", "responsible technology", "digital learning"],
+        "A Christian media and technology company based in Nigeria developing Gospel-centred films, documentaries, Scripture tools, children's media, learning resources, and live programmes for audiences everywhere.",
+      knowsAbout: ["Christian media", "Gospel media", "Christian films", "Scripture tools", "children's media", "film production", "responsible technology", "digital learning"],
       sameAs: [
         "https://www.youtube.com/@faithcine_official",
         "https://www.instagram.com/faithcine_official/",

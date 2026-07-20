@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "FaithCine",
     short_name: "FaithCine",
-    description: "Christian media and technology from Nigeria for Africa.",
+    description: "Christian films, Scripture tools, and Gospel media created to help people see Jesus.",
     start_url: "/",
     display: "standalone",
     background_color: "#020202",

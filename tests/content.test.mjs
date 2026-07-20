@@ -75,6 +75,21 @@ test("product language remains pre-launch", () => {
   assert.match(copy, /design and development/i);
 });
 
+test("brand copy leads with the global Christian mission", () => {
+  const copyFiles = ["app/page.tsx", "app/layout.tsx", "app/about/page.tsx", "app/products/page.tsx", "app/stories/page.tsx", "app/partners/page.tsx", "app/components/HomeHero.tsx", "app/components/Footer.tsx", "app/manifest.ts"];
+  const copy = copyFiles.map((file) => readFileSync(file, "utf8")).join("\n");
+  assert.doesNotMatch(copy, /Christian media from Nigeria for Africa|for audiences across Africa|company from Africa known/i);
+  assert.match(copy, /promote the Gospel/i);
+  assert.match(copy, /audiences everywhere/i);
+  assert.match(copy, /areaServed:\s*"Worldwide"/);
+});
+
+test("FaithCine Kids covers the full children's media vision", () => {
+  const products = readFileSync("app/products/page.tsx", "utf8");
+  assert.match(products, /FaithCine Kids/);
+  for (const format of ["movies", "animation", "stories", "magazines", "articles", "learning"]) assert.match(products, new RegExp(format, "i"));
+});
+
 test("brand system stays locked to Inter and FaithCine blue", () => {
   const css = readFileSync("app/globals.css", "utf8");
   const layout = readFileSync("app/layout.tsx", "utf8");

@@ -12,21 +12,21 @@ const facts = [
   ["Base", "Nigeria"],
   ["First product", "FaithCine Selah"],
   ["Current stage", "Design and development"],
-  ["Primary audience", "Christians, families and churches across Africa"],
+  ["Primary audience", "Christian audiences, families and churches worldwide"],
 ] as const;
 
 const asks = [
   ["01", "Research and pilot partners", "Churches, ministries and communities willing to help test whether Selah is clear, useful and responsible."],
   ["02", "Technical and AI guidance", "Support with scalable architecture, retrieval, evaluation, accessibility, privacy and responsible AI practice."],
   ["03", "Content and rights partners", "Bible publishers, teachers, theologians and creators who can support accurate, licensed and locally relevant work."],
-  ["04", "Media and distribution partners", "Filmmakers, platforms and organisations interested in Christian stories shaped with African audiences in view."],
+  ["04", "Media and distribution partners", "Filmmakers, platforms and organisations interested in creating and sharing excellent Christian content."],
 ] as const;
 
 export default function PartnersPage() {
   return (
     <>
-      <PageIntro eyebrow="For partners and programme reviewers" title="Building Christian media technology from Africa with trust at the centre.">
-        <p>FaithCine is developing media, Scripture tools and learning experiences from Nigeria. Selah is our first product and is currently in design and development.</p>
+      <PageIntro eyebrow="For partners and programme reviewers" title="Building Christian media technology with the Gospel and trust at the centre.">
+        <p>FaithCine is a Christian media and technology company based in Nigeria, developing films, Scripture tools, children&apos;s media, and learning experiences for audiences everywhere. Selah is our first product and is currently in design and development.</p>
       </PageIntro>
 
       <section className="section-shell partner-facts" aria-label="FaithCine company overview">
@@ -35,7 +35,7 @@ export default function PartnersPage() {
 
       <section className="section-shell editorial-split">
         <div><p className="section-number">The problem</p><h2>Useful Christian technology must understand the people, devices and communities it hopes to serve.</h2></div>
-        <div><p className="large-copy">Many digital faith experiences are built far from African realities. Data cost, unstable connections, language, cultural context, source clarity and trust all shape whether a product genuinely helps.</p><p>FaithCine begins with those constraints. We are designing close to the audience, testing before making claims, and keeping Scripture references visible.</p></div>
+        <div><p className="large-copy">Christian media technology must combine biblical faithfulness, excellent craft, cultural understanding, accessibility, source clarity, and trust.</p><p>FaithCine begins in Nigeria with the people and communities closest to us, while building for wider Christian audiences. We design close to the audience, test before making claims, and keep Scripture references visible.</p></div>
       </section>
 
       <section className="section-shell programme-direction">

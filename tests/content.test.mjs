@@ -9,11 +9,24 @@ test("all launch routes exist", () => {
   for (const route of routes) assert.ok(existsSync(route), `${route} should exist`);
 });
 
-test("contact is a primary navigation destination", () => {
+test("home and contact are primary navigation destinations", () => {
   const header = readFileSync("app/components/Header.tsx", "utf8");
   const about = readFileSync("app/about/page.tsx", "utf8");
+  assert.match(header, /\["Home", "\/"\]/);
   assert.match(header, /\["Contact us", "\/contact"\]/);
   assert.doesNotMatch(about, /href="\/contact"|Work with us/);
+});
+
+test("social links stay in the footer and mission copy uses the compact layout", () => {
+  const header = readFileSync("app/components/Header.tsx", "utf8");
+  const footer = readFileSync("app/components/Footer.tsx", "utf8");
+  const about = readFileSync("app/about/page.tsx", "utf8");
+  const css = readFileSync("app/globals.css", "utf8");
+  assert.doesNotMatch(header, /SocialLinks/);
+  assert.match(footer, /<SocialLinks/);
+  assert.match(about, /className="section-shell mission-vision"/);
+  assert.doesNotMatch(about, /mission-grid/);
+  assert.match(css, /\.mission-vision-list article/);
 });
 
 test("homepage hero keeps the study image and uses localized photography", () => {

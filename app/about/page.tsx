@@ -28,9 +28,22 @@ export default function AboutPage() {
         <div><p className="section-number">Why FaithCine exists</p><h2>The media people return to every day shapes what they notice, value, and remember.</h2></div>
         <div><p className="large-copy">Christian media should take part in that conversation with biblical truth, creative discipline, and a close understanding of the people it hopes to serve.</p><p>Our long-term vision is a trusted home for Christian films and media. We are beginning with FaithCine Selah, a guided Scripture product in research and design. FaithCine Stories is in early development, while Study, Kids, and Studio are planned for later.</p></div>
       </section>
-      <section className="section-shell mission-grid">
-        <article><span className="section-index">01</span><p className="section-number">Mission</p><h2>To glorify God through media, technology, and community work that helps people see Christ, understand biblical truth, and live it out each day.</h2></article>
-        <article><span className="section-index">02</span><p className="section-number">Vision</p><h2>To become a trusted global Christian media and technology company known for excellent Gospel-centred stories, faithful Scripture tools, and work that helps people see Christ more clearly.</h2></article>
+      <section className="section-shell mission-vision" aria-labelledby="mission-vision-title">
+        <div className="mission-vision-intro">
+          <p className="section-number">Mission and vision</p>
+          <h2 id="mission-vision-title">Why we work and where we are going.</h2>
+          <p>Our purpose stays rooted in the Gospel while the ways we serve continue to grow.</p>
+        </div>
+        <div className="mission-vision-list">
+          <article>
+            <span>01</span>
+            <div><h3>Our mission</h3><p>To glorify God through media, technology, and community work that helps people see Christ, understand biblical truth, and live it out each day.</p></div>
+          </article>
+          <article>
+            <span>02</span>
+            <div><h3>Our vision</h3><p>To become a trusted global Christian media and technology company known for excellent Gospel-centred stories, faithful Scripture tools, and work that helps people see Christ more clearly.</p></div>
+          </article>
+        </div>
       </section>
       <section className="section-shell values-section"><div className="section-heading"><p className="section-number">What guides our decisions</p><h2>Values for the work ahead.</h2></div><div className="values-grid">{values.map(([number, title, body]) => <article key={title}><span>{number}</span><h3>{title}</h3><p>{body}</p></article>)}</div></section>
       <section className="section-shell team-stage"><div><p className="section-number">Current stage</p><h2>We are starting with Selah.</h2></div><div><p>FaithCine is at an early stage. Selah is in design and development. FaithCine Stories is in early development. The other products remain plans for later. We will publish research, prototypes, partnerships, and results only after they exist and can be verified.</p></div></section>

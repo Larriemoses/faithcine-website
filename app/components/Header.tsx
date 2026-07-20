@@ -3,10 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { SocialLinks } from "./SocialLinks";
 import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
+  ["Home", "/"],
   ["What we do", "/#what-we-do"],
   ["Products", "/products"],
   ["Journal", "/blog"],
@@ -53,7 +53,6 @@ export function Header() {
         </nav>
         <div className="header-actions">
           <ThemeToggle />
-          <SocialLinks className="header-socials" />
           <Link className="button button-small button-primary" href="/#early-access">Stay connected</Link>
         </div>
       </div>

@@ -6,6 +6,7 @@
 ### Stories that point to Christ.
 
 [![Website](https://img.shields.io/badge/Website-faithcine.com-0F62FE?style=for-the-badge)](https://faithcine.com)
+[![Next.js](https://img.shields.io/badge/Next.js-16-111111?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19-111111?style=for-the-badge&logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-111111?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 
@@ -25,6 +26,12 @@ npm run typecheck
 npm test
 npm run build
 ```
+
+Copy `.env.example` to `.env.local` and add a Resend API key to test form delivery.
+
+## Deploy
+
+Import this repository into Vercel, keep the **Next.js** framework preset, and add the three variables from `.env.example`. Production deployments follow the `main` branch automatically.
 
 ## Publish to the Journal
 

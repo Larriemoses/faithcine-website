@@ -1,14 +1,16 @@
+import { readdirSync, readFileSync } from "node:fs";
+import path from "node:path";
+
 export type Article = {
   title: string; description: string; slug: string; author: string;
   publishedAt: string; updatedAt: string; pillar: string; image: string;
   imageAlt: string; draft: boolean; body: string;
 };
 
-const articleFiles = import.meta.glob("../../content/blog/*.md", {
-  eager: true,
-  import: "default",
-  query: "?raw",
-}) as Record<string, string>;
+const articleDirectory = path.join(process.cwd(), "content", "blog");
+const articleFiles = readdirSync(articleDirectory)
+  .filter((file) => file.endsWith(".md"))
+  .map((file) => readFileSync(path.join(articleDirectory, file), "utf8"));
 
 function parse(source: string): Article {
   const match = source.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
@@ -26,7 +28,7 @@ function parse(source: string): Article {
   };
 }
 
-export const articles = Object.values(articleFiles)
+export const articles = articleFiles
   .map(parse)
   .filter((article) => !article.draft)
   .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));

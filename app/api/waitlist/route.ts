@@ -1,4 +1,4 @@
-import { ensureFormsSchema } from "../../../db";
+import { sendFormEmail } from "../../lib/forms-email";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -12,12 +12,16 @@ export async function POST(request: Request) {
     const email = payload.email?.trim().toLowerCase() ?? "";
     if (!emailPattern.test(email) || email.length > 254) return Response.json({ error: "Enter a valid email address." }, { status: 400 });
 
-    const db = await ensureFormsSchema();
-    const existing = await db.prepare("SELECT id FROM waitlist_entries WHERE email = ? LIMIT 1").bind(email).first();
-    if (existing) return Response.json({ ok: true, existing: true });
-    await db.prepare("INSERT INTO waitlist_entries (email, research_consent, consent_source) VALUES (?, ?, ?)")
-      .bind(email, payload.researchConsent ? 1 : 0, "website")
-      .run();
+    await sendFormEmail({
+      subject: "New FaithCine early-access signup",
+      replyTo: email,
+      text: [
+        "A new early-access signup was submitted through faithcine.com.",
+        "",
+        `Email: ${email}`,
+        `Open to product research: ${payload.researchConsent ? "Yes" : "No"}`,
+      ].join("\n"),
+    });
     return Response.json({ ok: true }, { status: 201 });
   } catch {
     return Response.json({ error: "Unable to join the list right now." }, { status: 500 });

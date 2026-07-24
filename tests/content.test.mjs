@@ -65,12 +65,26 @@ test("contact topics and request safeguards stay aligned", () => {
   const form = readFileSync("app/components/ContactForm.tsx", "utf8");
   const contactApi = readFileSync("app/api/contact/route.ts", "utf8");
   const waitlistApi = readFileSync("app/api/waitlist/route.ts", "utf8");
+  const emailDelivery = readFileSync("app/lib/forms-email.ts", "utf8");
   assert.match(form, /Programmes and funding/);
   assert.match(contactApi, /Programmes and funding/);
   assert.match(contactApi, /content-length/);
   assert.match(waitlistApi, /content-length/);
   assert.match(contactApi, /Request origin is not allowed/);
   assert.match(waitlistApi, /Request origin is not allowed/);
+  assert.match(contactApi, /sendFormEmail/);
+  assert.match(waitlistApi, /sendFormEmail/);
+  assert.match(emailDelivery, /RESEND_API_KEY/);
+  assert.match(emailDelivery, /info@faithcine\.com/);
+});
+
+test("Vercel uses the standard Next.js build and documented form variables", () => {
+  const packageJson = JSON.parse(readFileSync("package.json", "utf8"));
+  const envExample = readFileSync(".env.example", "utf8");
+  assert.equal(packageJson.scripts.dev, "next dev");
+  assert.equal(packageJson.scripts.build, "next build");
+  assert.equal(packageJson.scripts.start, "next start");
+  for (const key of ["RESEND_API_KEY", "FORMS_TO_EMAIL", "RESEND_FROM_EMAIL"]) assert.match(envExample, new RegExp(`^${key}=`, "m"));
 });
 
 test("three publishable articles have required front matter", () => {

@@ -58,7 +58,9 @@ test("all committed media references resolve and use optimized editorial assets"
   assert.ok(mediaPaths.length >= 10, "expected the launch media library to be referenced");
   for (const mediaPath of mediaPaths) assert.ok(existsSync(`public${mediaPath}`), `${mediaPath} should exist`);
   assert.doesNotMatch(sources, /\/media\/[a-z0-9-]+\.jpg/);
-  for (const icon of ["public/icon.png", "public/apple-touch-icon.png", "public/og.jpg"]) assert.ok(existsSync(icon), `${icon} should exist`);
+  for (const icon of ["public/favicon.ico", "public/favicon-32.png", "public/icon-192.png", "public/icon.png", "public/apple-touch-icon.png", "public/og.jpg"]) {
+    assert.ok(existsSync(icon), `${icon} should exist`);
+  }
 });
 
 test("contact topics and request safeguards stay aligned", () => {

@@ -19,7 +19,7 @@ const principles = [
 export default function StoriesPage() {
   return <>
     <PageIntro eyebrow="FaithCine Stories" title="Stories that show how faith is lived." status="Coming soon"><p>FaithCine Stories will develop Christian films, shorts, series, documentaries, animation, and visual stories that share biblical hope and show how faith is lived. Editorial and production work is still at an early stage.</p></PageIntro>
-    <section className="product-page-visual section-shell"><Image src="/media/camera-production.webp" alt="A filmmaker working with a cinema camera" fill sizes="100vw" unoptimized /><div><p>Christian films and stories created to serve the Gospel.</p></div></section>
+    <section className="product-page-visual section-shell"><Image src="/media/camera-production.webp" alt="A filmmaker working with a cinema camera" fill sizes="100vw" /><div><p>Christian films and stories created to serve the Gospel.</p></div></section>
     <section className="section-shell values-section"><div className="section-heading"><p className="section-number">The principles behind the stories</p><h2>Truthful stories made with care.</h2></div><div className="values-grid values-grid-four">{principles.map(([number, title, body]) => <article key={title}><span>{number}</span><h3>{title}</h3><p>{body}</p></article>)}</div></section>
     <WaitlistCta title="Follow the first FaithCine Stories projects." />
   </>;

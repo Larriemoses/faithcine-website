@@ -57,7 +57,7 @@ function Markdown({ source }: { source: string }) {
       flushParagraph(); flushList();
       blocks.push(
         <figure className="article-figure" key={`image-${blocks.length}`}>
-          <Image src={image[2]} alt={image[1]} width={1800} height={1100} sizes="(max-width: 900px) 100vw, 800px" unoptimized />
+          <Image src={image[2]} alt={image[1]} width={1800} height={1100} sizes="(max-width: 900px) 100vw, 800px" />
           {image[3] && <figcaption>{image[3]}</figcaption>}
         </figure>,
       );
@@ -102,7 +102,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           <p className="article-description">{article.description}</p>
           <p className="article-byline">By {article.author} <span aria-hidden="true">·</span> <time dateTime={article.publishedAt}>{new Date(`${article.publishedAt}T00:00:00`).toLocaleDateString("en-NG", { day: "numeric", month: "long", year: "numeric" })}</time></p>
         </header>
-        <figure className="article-cover"><Image src={article.image} alt={article.imageAlt} fill priority sizes="(max-width: 900px) 100vw, 900px" unoptimized /></figure>
+        <figure className="article-cover"><Image src={article.image} alt={article.imageAlt} fill priority sizes="(max-width: 900px) 100vw, 900px" /></figure>
         <div className="article-body"><Markdown source={article.body} /></div>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </article>

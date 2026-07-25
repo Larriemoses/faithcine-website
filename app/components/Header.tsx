@@ -34,7 +34,7 @@ export function Header() {
     <header className="site-header">
       <div className="header-inner">
         <Link className="brand-link" href="/" aria-label="FaithCine home">
-          <Image className="brand-logo" src="/faithcine-logo-white.png" alt="FaithCine - Till Jesus be seen, Matthew 5:14-16" width={1402} height={1122} priority unoptimized />
+          <Image className="brand-logo" src="/faithcine-logo-white.png" alt="FaithCine - Till Jesus be seen, Matthew 5:14-16" width={1402} height={1122} sizes="106px" priority />
         </Link>
         <button
           ref={buttonRef}

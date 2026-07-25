@@ -32,7 +32,7 @@ export default function BlogPage() {
       {featured && (
         <section className="featured-story section-shell">
           <Link className="featured-story-image" href={`/blog/${featured.slug}`}>
-            <Image src={featured.image} alt={featured.imageAlt} fill priority sizes="(max-width: 900px) 100vw, 58vw" unoptimized />
+            <Image src={featured.image} alt={featured.imageAlt} fill priority sizes="(max-width: 900px) 100vw, 58vw" />
           </Link>
           <div className="featured-story-copy">
             <p className="article-meta"><span>Featured</span><span>{featured.pillar}</span></p>
@@ -50,7 +50,7 @@ export default function BlogPage() {
           {more.map((article) => (
             <article key={article.slug}>
               <Link className="journal-card-image" href={`/blog/${article.slug}`}>
-                <Image src={article.image} alt={article.imageAlt} fill sizes="(max-width: 720px) 100vw, 50vw" unoptimized />
+                <Image src={article.image} alt={article.imageAlt} fill sizes="(max-width: 720px) 100vw, 50vw" />
               </Link>
               <p className="article-meta"><span>{article.pillar}</span><time dateTime={article.publishedAt}>{dateLabel(article.publishedAt)}</time></p>
               <h2><Link href={`/blog/${article.slug}`}>{article.title}</Link></h2>

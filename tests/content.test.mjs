@@ -155,3 +155,28 @@ test("homepage includes lightweight scroll interaction", () => {
   assert.match(css, /\.motion-ready \[data-reveal="heading"\][\s\S]*?\{[^}]*opacity:\s*1/);
   assert.match(css, /@keyframes fc-heading-reveal/);
 });
+
+test("first-visit performance keeps image and scroll work lightweight", () => {
+  const imageFiles = [
+    ...routes,
+    "app/blog/[slug]/page.tsx",
+    "app/components/Footer.tsx",
+    "app/components/Header.tsx",
+    "app/components/HomeHero.tsx",
+  ];
+  const imageSources = imageFiles.map((file) => readFileSync(file, "utf8")).join("\n");
+  const config = readFileSync("next.config.ts", "utf8");
+  const motion = readFileSync("app/components/ScrollMotion.tsx", "utf8");
+  const hero = readFileSync("app/components/HomeHero.tsx", "utf8");
+  const css = readFileSync("app/globals.css", "utf8");
+
+  assert.doesNotMatch(imageSources, /\bunoptimized\b/);
+  assert.doesNotMatch(config, /unoptimized:\s*true/);
+  assert.match(config, /minimumCacheTTL:\s*2_678_400/);
+  assert.match(motion, /progressBar\.style\.transform/);
+  assert.doesNotMatch(motion, /setProperty\("--scroll-progress"/);
+  assert.match(css, /\.scroll-progress\s*\{[^}]*transform:\s*scaleX\(0\)/s);
+  assert.doesNotMatch(css, /\.site-header\s*\{[^}]*backdrop-filter/s);
+  assert.doesNotMatch(css, /@keyframes fc-card-reveal\s*\{[^}]*filter:/s);
+  assert.match(hero, /slides\.slice\(0, readySlides\)/);
+});

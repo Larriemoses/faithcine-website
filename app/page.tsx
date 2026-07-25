@@ -119,7 +119,7 @@ export default function Home() {
             </div>
           </div>
           <div className="home-process-media" data-reveal="image" style={{ "--reveal-delay": "120ms" } as CSSProperties}>
-            <Image src="/media/process-fellowship.webp" alt="Young adults singing and praying together in a home" fill sizes="(max-width: 980px) 100vw, 44vw" unoptimized />
+            <Image src="/media/process-fellowship.webp" alt="Young adults singing and praying together in a home" fill sizes="(max-width: 980px) 100vw, 44vw" />
           </div>
         </div>
       </section>
@@ -141,7 +141,7 @@ export default function Home() {
                 style={{ "--reveal-delay": `${90 + index * 80}ms` } as CSSProperties}
               >
                 <div className="home-experience-media">
-                  <Image src={experience.image} alt={experience.alt} fill sizes="(max-width: 760px) 88vw, 33vw" unoptimized />
+                  <Image src={experience.image} alt={experience.alt} fill sizes="(max-width: 760px) 88vw, 33vw" />
                 </div>
                 <div className="home-experience-copy">
                   <p>{experience.label}</p>
@@ -166,7 +166,7 @@ export default function Home() {
             {articles.slice(0, 3).map((article, index) => (
               <article key={article.slug} data-reveal="card" style={{ "--reveal-delay": `${90 + index * 80}ms` } as CSSProperties}>
                 <Link className="home-journal-image" href={`/blog/${article.slug}`}>
-                  <Image src={article.image} alt={article.imageAlt} fill sizes="(max-width: 760px) 100vw, 33vw" unoptimized />
+                  <Image src={article.image} alt={article.imageAlt} fill sizes="(max-width: 760px) 100vw, 33vw" />
                 </Link>
                 <p className="article-meta"><span>{article.pillar}</span><time dateTime={article.publishedAt}>{dateLabel(article.publishedAt)}</time></p>
                 <h3><Link href={`/blog/${article.slug}`}>{article.title}</Link></h3>
@@ -180,7 +180,7 @@ export default function Home() {
       <section id="early-access" className="home-screen home-connect" aria-labelledby="connect-title">
         <div className="section-shell home-connect-shell">
           <div className="home-connect-visual" data-reveal="image">
-            <Image src="/media/updates-studio.webp" alt="A media creator recording in a studio" fill sizes="(max-width: 900px) 100vw, 50vw" unoptimized />
+            <Image src="/media/updates-studio.webp" alt="A media creator recording in a studio" fill sizes="(max-width: 900px) 100vw, 50vw" />
             <div className="home-connect-shade" aria-hidden="true" />
             <div className="home-connect-copy">
               <span className="home-section-index">05</span>

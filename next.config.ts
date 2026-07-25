@@ -1,8 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Editorial media is already optimized and committed with the site.
-  images: { unoptimized: true },
+  images: {
+    minimumCacheTTL: 2_678_400,
+  },
 };
 
 export default nextConfig;

@@ -24,7 +24,7 @@ export default function ProductsPage() {
         <p>FaithCine Selah is the first product in active development. FaithCine Stories is at an earlier stage. Our later plans include Bible study, children&apos;s media, and Christian production.</p>
       </PageIntro>
       <section className="product-page-visual section-shell">
-        <Image src="/media/family-screen.webp" alt="A mother and daughter watching a programme together at home" fill sizes="100vw" unoptimized />
+        <Image src="/media/family-screen.webp" alt="A mother and daughter watching a programme together at home" fill sizes="100vw" />
         <div><p>Christian media planned for everyday viewing, personal study, and family conversation.</p></div>
       </section>
       <section className="section-shell editorial-split">

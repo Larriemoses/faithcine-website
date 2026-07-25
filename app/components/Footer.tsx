@@ -7,7 +7,7 @@ export function Footer() {
     <footer className="site-footer">
       <div className="footer-top section-shell">
         <div>
-          <Link className="brand-link footer-brand" href="/" aria-label="FaithCine home"><Image className="footer-logo" src="/faithcine-logo-white.png" alt="FaithCine - Till Jesus be seen, Matthew 5:14-16" width={1402} height={1122} unoptimized /></Link>
+          <Link className="brand-link footer-brand" href="/" aria-label="FaithCine home"><Image className="footer-logo" src="/faithcine-logo-white.png" alt="FaithCine - Till Jesus be seen, Matthew 5:14-16" width={1402} height={1122} sizes="128px" /></Link>
           <p>FaithCine is a Christian media and technology company based in Nigeria, creating films, Scripture tools, children&apos;s media, learning resources, and live programmes that help people see Jesus.</p>
           <SocialLinks className="footer-socials" />
         </div>

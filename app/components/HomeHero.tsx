@@ -33,6 +33,7 @@ export function HomeHero() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [paused, setPaused] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [readySlides, setReadySlides] = useState(1);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -40,6 +41,15 @@ export function HomeHero() {
     updatePreference();
     mediaQuery.addEventListener("change", updatePreference);
     return () => mediaQuery.removeEventListener("change", updatePreference);
+  }, []);
+
+  useEffect(() => {
+    const secondSlide = window.setTimeout(() => setReadySlides(2), 2_800);
+    const remainingSlides = window.setTimeout(() => setReadySlides(slides.length), 5_200);
+    return () => {
+      window.clearTimeout(secondSlide);
+      window.clearTimeout(remainingSlides);
+    };
   }, []);
 
   useEffect(() => {
@@ -59,7 +69,7 @@ export function HomeHero() {
       aria-labelledby="home-title"
     >
       <div className="hero-slides" aria-hidden="true">
-        {slides.map((slide, index) => (
+        {slides.slice(0, readySlides).map((slide, index) => (
           <Image
             key={slide.src}
             className={`${index === activeSlide ? "hero-slide is-active" : "hero-slide"} hero-slide-${slide.chapter.toLowerCase()}`}
@@ -68,7 +78,6 @@ export function HomeHero() {
             fill
             sizes="100vw"
             priority={index === 0}
-            unoptimized
           />
         ))}
       </div>
@@ -105,7 +114,10 @@ export function HomeHero() {
                 className={index === activeSlide ? "hero-chapter is-active" : "hero-chapter"}
                 aria-label={`Show ${slide.chapter}: ${slide.reference}`}
                 aria-pressed={index === activeSlide}
-                onClick={() => setActiveSlide(index)}
+                onClick={() => {
+                  setReadySlides(slides.length);
+                  setActiveSlide(index);
+                }}
               >
                 <span>0{index + 1}</span>
                 <strong>{slide.chapter}</strong>

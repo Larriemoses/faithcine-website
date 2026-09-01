@@ -102,7 +102,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           <p className="article-description">{article.description}</p>
           <p className="article-byline">By {article.author} <span aria-hidden="true">·</span> <time dateTime={article.publishedAt}>{new Date(`${article.publishedAt}T00:00:00`).toLocaleDateString("en-NG", { day: "numeric", month: "long", year: "numeric" })}</time></p>
         </header>
-        <figure className="article-cover"><Image src={article.image} alt={article.imageAlt} fill priority sizes="(max-width: 900px) 100vw, 900px" /></figure>
+        <figure className="article-cover"><Image src={article.image} alt={article.imageAlt} fill priority sizes="(max-width: 700px) 100vw, (max-width: 1280px) calc(100vw - 8rem), 72rem" /></figure>
         <div className="article-body"><Markdown source={article.body} /></div>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </article>

@@ -96,7 +96,19 @@ test("publishable articles have required front matter", () => {
       assert.match(source, new RegExp(`^${field}:`, "m"), `${slug} needs ${field}`);
     }
     assert.match(source, /^draft: false$/m);
+    const body = source.split(/^---$/m).slice(2).join("---");
+    assert.doesNotMatch(body, /^\*\*/m, `${slug} should not use unsupported bold markers`);
+    assert.doesNotMatch(body, /^---$/m, `${slug} should not expose an unsupported divider`);
   }
+});
+
+test("journal articles use a standard long-form reading layout", () => {
+  const articlePage = readFileSync("app/blog/[slug]/page.tsx", "utf8");
+  const css = readFileSync("app/globals.css", "utf8");
+  assert.match(articlePage, /\(max-width: 1280px\) calc\(100vw - 8rem\), 72rem/);
+  assert.match(css, /--reading:\s*44rem/);
+  assert.match(css, /\.article-page\s*\{[^}]*78rem/s);
+  assert.match(css, /\.article-cover\s*\{[^}]*max-width:\s*72rem[^}]*aspect-ratio:\s*3\s*\/\s*2/s);
 });
 
 test("product language remains pre-launch", () => {

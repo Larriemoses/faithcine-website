@@ -16,7 +16,7 @@
   --line: #373737;
   --error: #ff7a7a;
   --shell: 86rem;
-  --reading: 46rem;
+  --reading: 44rem;
   --gutter: clamp(1.25rem, 4vw, 4rem);
   --section-space: clamp(4.5rem, 8vw, 7.5rem);
   --font: "Inter Variable", Inter, "Segoe UI", Arial, sans-serif;
@@ -396,24 +396,30 @@ textarea { resize: vertical; }
 .editorial-standards h2 { margin: .7rem 0 0; }
 .editorial-standards > p { max-width: 46rem; margin: 0; color: var(--text-soft); font-size: clamp(1.1rem, 1.7vw, 1.3rem); line-height: 1.65; }
 
-.article-page { width: min(calc(100% - (var(--gutter) * 2)), 72rem); padding-block: clamp(2.25rem, 4vw, 3.5rem) var(--section-space); }
+.article-page { width: min(calc(100% - (var(--gutter) * 2)), 78rem); padding-block: clamp(2.25rem, 4vw, 3.5rem) var(--section-space); }
 .article-page > .back-link { font-size: .86rem; }
-.article-page header { max-width: 58rem; margin-inline: auto; padding: clamp(2.5rem, 4vw, 3.5rem) 0 2.25rem; text-align: center; border-bottom: 0; }
-.article-page h1 { max-width: 18ch; margin: .75rem auto 1.25rem; font-size: clamp(2.7rem, 4.4vw, 4.25rem); }
-.article-description { max-width: 43rem; margin-inline: auto; color: var(--text-soft); font-size: clamp(1.2rem, 1.9vw, 1.45rem); line-height: 1.55; }
-.article-cover { position: relative; width: 100%; aspect-ratio: 16 / 9; margin: 0 0 clamp(3rem, 6vw, 5rem); overflow: hidden; background: var(--surface); }
+.article-page header { max-width: 64rem; margin-inline: auto; padding: clamp(2.5rem, 4vw, 3.75rem) 0 2.5rem; text-align: center; border-bottom: 0; }
+.article-page h1 { max-width: 22ch; margin: .75rem auto 1.25rem; font-size: clamp(2.7rem, 4.2vw, 4rem); }
+.article-description { max-width: 46rem; margin-inline: auto; color: var(--text-soft); font-size: clamp(1.15rem, 1.6vw, 1.35rem); line-height: 1.6; }
+.article-cover { position: relative; width: 100%; max-width: 72rem; aspect-ratio: 3 / 2; margin: 0 auto clamp(3rem, 6vw, 5rem); overflow: hidden; background: var(--surface); }
 .article-cover img { object-fit: cover; }
 .article-body { max-width: var(--reading); margin-inline: auto; }
-.article-body p, .article-body li { color: var(--text-soft); font-size: clamp(1.125rem, 1.45vw, 1.28rem); line-height: 1.78; }
+.article-body p, .article-body li { color: var(--text-soft); font-size: clamp(1.1rem, 1.3vw, 1.2rem); line-height: 1.8; }
 .article-body p { margin-bottom: 1.65rem; }
-.article-body h2 { max-width: 22ch; margin: 3.5rem 0 1.15rem; font-size: clamp(2rem, 3.2vw, 2.8rem); line-height: 1.15; }
-.article-body h3 { margin: 2.75rem 0 1rem; font-size: 1.55rem; line-height: 1.2; }
+.article-body > p:first-child { color: var(--text); font-size: clamp(1.16rem, 1.45vw, 1.3rem); line-height: 1.7; }
+.article-body h2 { max-width: 24ch; margin: 3.5rem 0 1.15rem; font-size: clamp(1.9rem, 2.7vw, 2.35rem); line-height: 1.18; }
+.article-body h3 { margin: 2.75rem 0 1rem; font-size: 1.35rem; line-height: 1.25; }
 .article-body ul, .article-body ol { padding-left: 1.45rem; margin-bottom: 1.75rem; }
 .article-body li { margin-bottom: .65rem; padding-left: .25rem; }
 .article-body blockquote { margin: 3rem 0; padding: .35rem 0 .35rem 1.5rem; border-left: 4px solid var(--brand-blue); color: var(--text); font-size: clamp(1.35rem, 2vw, 1.7rem); font-weight: 600; line-height: 1.5; }
 .article-figure { width: min(88vw, 62rem); margin: 3rem 50%; transform: translateX(-50%); }
 .article-figure img { display: block; width: 100%; height: auto; max-height: 46rem; object-fit: cover; }
 .article-figure figcaption { max-width: 44rem; margin: .65rem auto 0; color: var(--muted); font-size: .75rem; text-align: center; }
+
+@media (min-width: 90rem) {
+  .article-page { width: min(calc(100% - 8rem), 78rem); }
+  .article-page header { padding-top: 4rem; }
+}
 
 /* Footer and consent */
 .site-footer { border-top: 1px solid var(--line); background: var(--bg-soft); }
@@ -564,7 +570,7 @@ textarea { resize: vertical; }
   .journal-hero h1 { font-size: clamp(2.5rem, 9.5vw, 3.2rem); }
   .featured-story { padding-bottom: 4.25rem; }
   .featured-story-image { min-height: 23rem; }
-  .article-page { width: min(calc(100% - 1.9rem), 72rem); padding-top: 2.5rem; }
+  .article-page { width: min(calc(100% - 1.9rem), 78rem); padding-top: 2.5rem; }
   .article-page header { padding-block: 2.5rem 2rem; }
   .article-page h1 { font-size: clamp(2.4rem, 9vw, 3.1rem); }
   .article-cover { width: 100vw; margin-left: 50%; transform: translateX(-50%); }

@@ -3,7 +3,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { test } from "node:test";
 
 const routes = ["app/page.tsx", "app/selah/page.tsx", "app/products/page.tsx", "app/stories/page.tsx", "app/blog/page.tsx", "app/about/page.tsx", "app/partners/page.tsx", "app/contact/page.tsx", "app/privacy/page.tsx", "app/terms/page.tsx", "app/accessibility/page.tsx"];
-const articles = ["what-scripture-meditation-is", "bring-anxiety-to-scripture", "responsible-technology-and-faith"];
+const articles = ["what-scripture-meditation-is", "bring-anxiety-to-scripture", "responsible-technology-and-faith", "when-you-do-not-feel-like-praying", "what-makes-a-christian-story-christian"];
 
 test("all launch routes exist", () => {
   for (const route of routes) assert.ok(existsSync(route), `${route} should exist`);
@@ -89,7 +89,7 @@ test("Vercel uses the standard Next.js build and documented form variables", () 
   for (const key of ["RESEND_API_KEY", "FORMS_TO_EMAIL", "RESEND_FROM_EMAIL"]) assert.match(envExample, new RegExp(`^${key}=`, "m"));
 });
 
-test("three publishable articles have required front matter", () => {
+test("publishable articles have required front matter", () => {
   for (const slug of articles) {
     const source = readFileSync(`content/blog/${slug}.md`, "utf8");
     for (const field of ["title", "description", "slug", "author", "publishedAt", "updatedAt", "pillar", "image", "imageAlt", "draft"]) {

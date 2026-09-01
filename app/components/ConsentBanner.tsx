@@ -27,8 +27,8 @@ export function ConsentBanner() {
     <aside className="consent-banner" aria-label="Analytics preference">
       <p>We use essential technology to run this site. Optional aggregate analytics help us understand what is useful. <Link href="/privacy">Privacy notice</Link></p>
       <div>
-        <button className="button button-primary button-small" onClick={() => choose("allowed")}>Allow analytics</button>
-        <button className="button button-ghost button-small" onClick={() => choose("essential")}>Use essential only</button>
+        <button className="button button-primary button-small" type="button" onClick={() => choose("allowed")}>Allow analytics</button>
+        <button className="button button-ghost button-small" type="button" onClick={() => choose("essential")}>Use essential only</button>
       </div>
     </aside>
   );

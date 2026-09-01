@@ -35,10 +35,11 @@
 }
 
 * { box-sizing: border-box; }
-html { width: 100%; scroll-behavior: smooth; background: var(--bg); color-scheme: dark; }
+html { width: 100%; scroll-behavior: smooth; scroll-padding-top: 6rem; background: var(--bg); color-scheme: dark; }
 [data-theme="light"] { color-scheme: light; }
 body { width: 100%; min-width: 20rem; margin: 0; overflow-x: clip; background: var(--bg); color: var(--text); font: 400 1rem/1.65 var(--font); text-rendering: optimizeLegibility; transition: color .2s ease, background .2s ease; }
-#main-content { width: 100%; min-height: 65vh; overflow-x: clip; }
+#main-content { width: 100%; min-height: 65vh; overflow-x: clip; scroll-margin-top: 6rem; }
+section[id] { scroll-margin-top: 6rem; }
 a { color: inherit; text-underline-offset: .2em; }
 button, input, select, textarea { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }

@@ -40,6 +40,7 @@ export function Header() {
           ref={buttonRef}
           className="menu-button"
           type="button"
+          aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="primary-navigation"
           onClick={() => setOpen((value) => !value)}

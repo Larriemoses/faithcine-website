@@ -9,6 +9,29 @@ test("all launch routes exist", () => {
   for (const route of routes) assert.ok(existsSync(route), `${route} should exist`);
 });
 
+test("hard-coded internal links point to real pages and anchors", () => {
+  const navigationFiles = [
+    ...routes,
+    "app/not-found.tsx",
+    "app/thank-you/page.tsx",
+    "app/components/ConsentBanner.tsx",
+    "app/components/Footer.tsx",
+    "app/components/Header.tsx",
+    "app/components/HomeHero.tsx",
+    "app/components/WaitlistForm.tsx",
+  ];
+  const navigation = navigationFiles.map((file) => readFileSync(file, "utf8")).join("\n");
+  const hrefs = [...navigation.matchAll(/\bhref="([/#][^"]*)"/g)].map((match) => match[1]);
+  const anchorSources = `${readFileSync("app/layout.tsx", "utf8")}\n${readFileSync("app/page.tsx", "utf8")}`;
+
+  for (const href of hrefs) {
+    const url = new URL(href, "https://faithcine.com");
+    const routeFile = url.pathname === "/" ? "app/page.tsx" : `app${url.pathname}/page.tsx`;
+    assert.ok(existsSync(routeFile), `${href} should point to an existing page`);
+    if (url.hash) assert.match(anchorSources, new RegExp(`id=["']${url.hash.slice(1)}["']`), `${href} should point to an existing anchor`);
+  }
+});
+
 test("home and contact are primary navigation destinations", () => {
   const header = readFileSync("app/components/Header.tsx", "utf8");
   const about = readFileSync("app/about/page.tsx", "utf8");
@@ -38,10 +61,11 @@ test("homepage hero keeps the study image and uses localized photography", () =>
   assert.doesNotMatch(hero, /hero-scripture-nigeria\.jpg|hero-nigerian-filmmaker\.jpg/);
 });
 
-test("launch metadata, icons, security headers and reviewer route are present", () => {
+test("launch metadata, icons, deployed security headers and reviewer route are present", () => {
   const layout = readFileSync("app/layout.tsx", "utf8");
   const sitemap = readFileSync("app/sitemap.ts", "utf8");
   const worker = readFileSync("worker/index.ts", "utf8");
+  const config = readFileSync("next.config.ts", "utf8");
   assert.match(layout, /metadataBase:\s*new URL\("https:\/\/faithcine\.com"\)/);
   assert.match(layout, /\/icon\.png/);
   assert.match(layout, /\/og\.jpg/);
@@ -49,6 +73,26 @@ test("launch metadata, icons, security headers and reviewer route are present", 
   assert.match(sitemap, /"\/partners"/);
   assert.match(worker, /Content-Security-Policy/);
   assert.match(worker, /Strict-Transport-Security/);
+  for (const header of ["Content-Security-Policy", "Referrer-Policy", "Strict-Transport-Security", "X-Content-Type-Options", "X-Frame-Options", "Permissions-Policy", "Cross-Origin-Opener-Policy"]) {
+    assert.match(config, new RegExp(header), `${header} should be applied by Next.js on Vercel`);
+  }
+  assert.match(config, /poweredByHeader:\s*false/);
+});
+
+test("navigation and form controls preserve accessible interaction states", () => {
+  const layout = readFileSync("app/layout.tsx", "utf8");
+  const header = readFileSync("app/components/Header.tsx", "utf8");
+  const consent = readFileSync("app/components/ConsentBanner.tsx", "utf8");
+  const waitlist = readFileSync("app/components/WaitlistForm.tsx", "utf8");
+  const css = readFileSync("app/globals.css", "utf8");
+  assert.match(layout, /<main id="main-content" tabIndex=\{-1\}>/);
+  assert.match(layout, /<a className="skip-link" href="#main-content">/);
+  assert.match(header, /aria-label=\{open \? "Close menu" : "Open menu"\}/);
+  assert.equal((consent.match(/type="button"/g) ?? []).length, 2);
+  assert.match(waitlist, /aria-describedby=\{error \? "waitlist-note waitlist-error" : "waitlist-note"\}/);
+  assert.match(waitlist, /aria-invalid=\{state === "error"\}/);
+  assert.match(css, /scroll-padding-top:\s*6rem/);
+  assert.match(css, /section\[id\]\s*\{[^}]*scroll-margin-top:\s*6rem/);
 });
 
 test("all committed media references resolve and use optimized editorial assets", () => {

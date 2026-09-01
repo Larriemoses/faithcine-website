@@ -53,7 +53,16 @@ export function WaitlistForm() {
       </div>
       <label htmlFor="waitlist-email">Email address</label>
       <div className="field-button-row">
-        <input id="waitlist-email" name="email" type="email" autoComplete="email" placeholder="you@example.com" aria-describedby="waitlist-note waitlist-error" required />
+        <input
+          id="waitlist-email"
+          name="email"
+          type="email"
+          autoComplete="email"
+          placeholder="you@example.com"
+          aria-describedby={error ? "waitlist-note waitlist-error" : "waitlist-note"}
+          aria-invalid={state === "error"}
+          required
+        />
         <button className="button button-primary" type="submit" disabled={state === "loading"}>{state === "loading" ? "Joining..." : "Join early access"}</button>
       </div>
       <label className="checkbox-row">

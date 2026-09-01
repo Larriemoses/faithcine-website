@@ -6,8 +6,8 @@ author: "FaithCine Editorial"
 publishedAt: "2026-09-01"
 updatedAt: "2026-09-01"
 pillar: "Faith and real life"
-image: "/media/worship-crowd.webp"
-imageAlt: "A congregation gathered in worship and prayer"
+image: "/blog/when-you-do-not-feel-like-praying/cover.webp"
+imageAlt: "A Nigerian man sitting quietly beside an open Bible in soft morning light"
 draft: false
 ---
 There are days when prayer feels natural.

@@ -6,8 +6,8 @@ author: "FaithCine Editorial"
 publishedAt: "2026-09-01"
 updatedAt: "2026-09-01"
 pillar: "Christian media and culture"
-image: "/media/camera-production.webp"
-imageAlt: "A filmmaker working with a professional cinema camera"
+image: "/blog/what-makes-a-christian-story-christian/cover.webp"
+imageAlt: "A Nigerian film director and cinematographer reviewing a family scene on set"
 draft: false
 ---
 Put a pastor in the story.
